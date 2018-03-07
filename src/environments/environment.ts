@@ -4,9 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 /*
-
+create file 'private-data.ts' and place MOVIE_DB_KEY there
+temporary version until I have not api on nodejs
  */
-
 import { MOVIE_DB_KEY } from "./pivate-data";
 
 export const environment = {

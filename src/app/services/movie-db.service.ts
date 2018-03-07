@@ -8,4 +8,8 @@ export class MovieDbService {
   discoverFilms(): Observable<Film[]> {
     return Observable.of([]);
   }
+
+  discoverShows(): Observable<Film[]> {
+    return Observable.of([]);
+  }
 }

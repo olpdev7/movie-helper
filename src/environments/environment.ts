@@ -3,6 +3,13 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+/*
+
+ */
+
+import { MOVIE_DB_KEY } from "./pivate-data";
+
 export const environment = {
-  production: false
+  production: false,
+  movieDbKey: MOVIE_DB_KEY
 };

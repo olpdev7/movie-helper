@@ -7,7 +7,7 @@
 create file 'private-data.ts' and place MOVIE_DB_KEY there
 temporary version until I have not api on nodejs
  */
-import { MOVIE_DB_KEY } from "./pivate-data";
+import { MOVIE_DB_KEY } from "./private-data";
 
 export const environment = {
   production: false,

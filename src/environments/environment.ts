@@ -7,9 +7,11 @@
 create file 'private-data.ts' and place MOVIE_DB_KEY there
 temporary version until I have not api on nodejs
  */
-import { MOVIE_DB_KEY } from "./private-data";
+import { MOVIE_DB_KEY } from './private-data';
 
 export const environment = {
+  // TODO: remove this or don't use caps for other names in ths file
   production: false,
-  movieDbKey: MOVIE_DB_KEY
+  MOVIE_DB_KEY,
+  API_ROOT_URL: 'https://api.themoviedb.org/3/'
 };

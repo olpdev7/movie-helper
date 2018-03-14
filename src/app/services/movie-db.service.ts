@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
-import { Film } from '../interfaces/film.interface';
+import { environment } from '../../environments/environment';
+import { DiscoverResult } from '../interfaces';
 
 @Injectable()
 export class MovieDbService {
-  discoverFilms(): Observable<Film[]> {
-    return Observable.of([]);
+  constructor(private http: HttpClient) { }
+
+  discoverFilms(): Observable<DiscoverResult> {
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${environment.MOVIE_DB_KEY}&page=1&year=2016`;
+    return this.http.get<DiscoverResult>(url);
   }
 
-  discoverShows(): Observable<Film[]> {
-    return Observable.of([]);
+  discoverShows(): Observable<DiscoverResult> {
+    return Observable.of(null);
   }
 }

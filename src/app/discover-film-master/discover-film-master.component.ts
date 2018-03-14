@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Film } from '../interfaces/film.interface';
+import { DiscoverResult } from '../interfaces';
 import { MovieDbService } from '../services/movie-db.service';
 
 @Component({
@@ -14,12 +14,16 @@ export class DiscoverFilmMasterComponent implements OnInit {
   constructor(private movieDbService: MovieDbService) { }
 
   ngOnInit() {
+    this.discoverFilms();
   }
 
   discoverFilms(): void {
     this.movieDbService
       .discoverFilms()
-      .subscribe((films: Film[]) => console.log('finish', `films: ${films}`))
+      .subscribe((discoverResult: DiscoverResult) => {
+        console.log('finish', `films: ${discoverResult.totalResults}`);
+      });
+
   }
 
 }

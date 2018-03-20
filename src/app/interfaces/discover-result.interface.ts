@@ -1,6 +1,6 @@
 export interface DiscoverResult {
   page: number,
-  totalPages: number,
-  totalResults: number,
+  total_pages: number,
+  total_results: number,
   results: any[]
 }

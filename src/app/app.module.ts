@@ -25,7 +25,7 @@ import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.inte
   ],
   providers: [
     MovieDbService,
-    { provide: HTTP_INTERCEPTORS, useClass: CamelCaseCoverterInterceptor, multi: true }
+    // { provide: HTTP_INTERCEPTORS, useClass: CamelCaseCoverterInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

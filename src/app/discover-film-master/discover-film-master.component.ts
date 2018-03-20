@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DiscoverResult } from '../interfaces';
 import { MovieDbService } from '../services/movie-db.service';
+import {DiscoverParams} from "../interfaces/discover-params.interface";
 
 @Component({
   selector: 'app-discover-film-master',
@@ -9,19 +10,18 @@ import { MovieDbService } from '../services/movie-db.service';
   styleUrls: ['./discover-film-master.component.css']
 })
 export class DiscoverFilmMasterComponent implements OnInit {
-  genres: string;
+  discoverParams: DiscoverParams = {};
 
   constructor(private movieDbService: MovieDbService) { }
 
-  ngOnInit() {
-    this.discoverFilms();
-  }
+  ngOnInit() {}
 
   discoverFilms(): void {
+    this.movieDbService.getGenres().subscribe(res => console.log(res));
     this.movieDbService
-      .discoverFilms()
+      .discoverFilms(this.discoverParams)
       .subscribe((discoverResult: DiscoverResult) => {
-        console.log('finish', `films: ${discoverResult.totalResults}`);
+        console.log('finish', `films: ${discoverResult.total_results}`);
       });
 
   }

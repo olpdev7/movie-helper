@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./film-list.component.css']
 })
 export class FilmListComponent implements OnInit {
-
+  films: any[];
   constructor() { }
 
   ngOnInit() {
+    this.films = [1,2,3]
   }
 
 }

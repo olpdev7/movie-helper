@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { MatListModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule } from '@angular/material';
+
+const modules = [MatSidenavModule, MatToolbarModule];
 
 @NgModule({
-  imports: [MatListModule],
-  exports: [MatListModule]
+  imports: modules,
+  exports: modules
 })
 export class MaterialHubModule { }

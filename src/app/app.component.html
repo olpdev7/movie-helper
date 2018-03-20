@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  TOOLBAR
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side">
+    <router-outlet name="sidebar"></router-outlet>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

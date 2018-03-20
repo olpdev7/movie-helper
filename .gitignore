@@ -41,3 +41,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Private API keys
+/src/environments/private-data.ts

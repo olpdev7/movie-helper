@@ -3,6 +3,15 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+/*
+create file 'private-data.ts' and place MOVIE_DB_KEY there
+temporary version until I have not api on nodejs
+ */
+import { MOVIE_DB_KEY } from './private-data';
+
 export const environment = {
-  production: false
+  // TODO: remove this or don't use caps for other names in ths file
+  production: false,
+  MOVIE_DB_KEY,
+  API_ROOT_URL: 'https://api.themoviedb.org/3/'
 };

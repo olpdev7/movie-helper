@@ -7,7 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MaterialHubModule } from './material-hub/material-hub.module';
 import { DiscoverFilmMasterComponent } from './discover-film-master/discover-film-master.component';
-import { AppRoutingModule } from './routing.module';
+import { AppRoutingModule } from './routing/routing.module';
 import { MovieDbService } from './services/movie-db.service';
 import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.interceptor';
 

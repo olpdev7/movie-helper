@@ -17,12 +17,8 @@ export class DiscoverFilmMasterComponent implements OnInit {
   ngOnInit() {}
 
   discoverFilms(): void {
-    this.movieDbService.getGenres().subscribe(res => console.log(res));
-    this.movieDbService
-      .discoverFilms(this.discoverParams)
-      .subscribe((discoverResult: DiscoverResult) => {
-        console.log('finish', `films: ${discoverResult.total_results}`);
-      });
+    this.movieDbService.discoverFilms(this.discoverParams)
+
 
   }
 

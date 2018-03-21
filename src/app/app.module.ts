@@ -11,13 +11,16 @@ import { DiscoverFilmMasterComponent } from './discover-film-master/discover-fil
 import { AppRoutingModule } from './routing/routing.module';
 import { MovieDbService } from './services/movie-db.service';
 import { FilmListComponent } from './film-list/film-list.component';
+import { SidebarService } from './services/sidebar.service';
+import { FilmDetailsComponent } from './film-details/film-details.component';
 // import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiscoverFilmMasterComponent,
-    FilmListComponent
+    FilmListComponent,
+    FilmDetailsComponent
   ],
   imports: [
     AppRoutingModule,
@@ -29,6 +32,7 @@ import { FilmListComponent } from './film-list/film-list.component';
   ],
   providers: [
     MovieDbService,
+    SidebarService
     // { provide: HTTP_INTERCEPTORS, useClass: CamelCaseCoverterInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

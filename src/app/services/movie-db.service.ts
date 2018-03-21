@@ -4,13 +4,20 @@ import { Observable} from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { DiscoverResult } from '../interfaces';
-import {DiscoverParams} from "../interfaces/discover-params.interface";
+import { DiscoverParams } from "../interfaces/discover-params.interface";
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class MovieDbService {
+  private _films$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+
   constructor(private http: HttpClient) { }
 
-  discoverFilms(discoverParams: DiscoverParams): Observable<DiscoverResult> {
+  get films$(): BehaviorSubject<any> {
+    return this._films$;
+  }
+
+  discoverFilms(discoverParams: DiscoverParams): void {
     const url = `https://api.themoviedb.org/3/discover/movie`;
     const options = {
       params: {
@@ -18,7 +25,9 @@ export class MovieDbService {
         api_key: environment.MOVIE_DB_KEY
       }
     };
-    return this.http.get<DiscoverResult>(url, options);
+    this.http.get<DiscoverResult>(url, options).subscribe((discoverResult: DiscoverResult) => {
+      this.films$.next(discoverResult.results);
+    });
   }
 
   discoverShows(): Observable<DiscoverResult> {

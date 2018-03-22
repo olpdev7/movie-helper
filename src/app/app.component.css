@@ -1,3 +1,10 @@
 mat-sidenav {
   width: 400px;
+
+}
+mat-sidenav-container {
+  height: 100%;
+}
+.temp {
+  height: 100%;
 }

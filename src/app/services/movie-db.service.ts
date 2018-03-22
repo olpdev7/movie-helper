@@ -34,6 +34,16 @@ export class MovieDbService {
     return Observable.of(null);
   }
 
+  getFilm(id: string): Observable<any> {
+    const url = `https://api.themoviedb.org/3/movie/${id}`;
+    const options = {
+      params: {
+        api_key: environment.MOVIE_DB_KEY
+      }
+    };
+    return this.http.get<DiscoverResult>(url, options);
+  }
+
   getGenres() {
     const url = `https://api.themoviedb.org/3/genre/tv/list`;
     const options = {

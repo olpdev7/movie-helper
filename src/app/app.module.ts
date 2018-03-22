@@ -13,6 +13,7 @@ import { MovieDbService } from './services/movie-db.service';
 import { FilmListComponent } from './film-list/film-list.component';
 import { SidebarService } from './services/sidebar.service';
 import { FilmDetailsComponent } from './film-details/film-details.component';
+import { FilmDetailsResolver } from './resolvers/film-details.resolver';
 // import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.interceptor';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FilmDetailsComponent } from './film-details/film-details.component';
     MaterialHubModule
   ],
   providers: [
+    FilmDetailsResolver,
     MovieDbService,
     SidebarService
     // { provide: HTTP_INTERCEPTORS, useClass: CamelCaseCoverterInterceptor, multi: true }

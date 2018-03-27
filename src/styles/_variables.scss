@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+/*
+FOR INNER USAGE!
+To create angular material custom theme
+ */
+
+$_app-mat-primary: mat-palette($mat-blue);
+$_app-mat-accent: mat-palette($mat-purple, A200, A100, A400);
+$_app-mat-warn: mat-palette($mat-red);
+
+/*
+colors that can be used in other components for styling
+ */
+
+$app-mat-primary: mat-color($_app-mat-primary);
+$app-mat-accent: mat-color($_app-mat-accent);
+$app-mat-warn: mat-color($_app-mat-warn);

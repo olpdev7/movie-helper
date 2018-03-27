@@ -7,7 +7,7 @@ import { MovieDbService } from '../services/movie-db.service';
 @Component({
   selector: 'app-film-list',
   templateUrl: './film-list.component.html',
-  styleUrls: ['./film-list.component.css']
+  styleUrls: ['./film-list.component.scss']
 })
 export class FilmListComponent implements OnInit {
   films$: BehaviorSubject<any>;

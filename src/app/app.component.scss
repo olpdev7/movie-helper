@@ -1,0 +1,13 @@
+@import 'variables';
+
+mat-sidenav {
+  width: 400px;
+
+}
+mat-sidenav-container {
+  height: 100%;
+}
+.temp {
+  height: 100%;
+  color: $app-mat-accent;
+}

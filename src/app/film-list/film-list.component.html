@@ -1,5 +1,3 @@
-<div *ngFor="let film of films$ | async">
-  <a [routerLink]="['details', film.id]">{{film.original_title}}</a>
-</div>
+<app-film-preview *ngFor="let film of films$ | async" [film]="film"></app-film-preview>
 page 1
 <button (click)="openSidebar()">Use master to discover film</button>

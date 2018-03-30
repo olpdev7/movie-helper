@@ -17,9 +17,7 @@ export class DiscoverFilmMasterComponent implements OnInit {
   ngOnInit() {}
 
   discoverFilms(): void {
-    this.movieDbService.discoverFilms(this.discoverParams)
-
-
+    this.movieDbService.discoverFilms(this.discoverParams);
   }
 
 }

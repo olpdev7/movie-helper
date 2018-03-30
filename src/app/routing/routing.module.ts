@@ -5,28 +5,50 @@ import {DiscoverFilmMasterComponent} from '../discover-film-master/discover-film
 import {FilmListComponent} from "../film-list/film-list.component";
 import { FilmDetailsComponent } from '../film-details/film-details.component';
 import { FilmDetailsResolver } from '../resolvers/film-details.resolver';
+import { TestComponent } from '../test/test.component';
+import { ToolbarPreloaderGuard } from '../guards/toolbar-preloader.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: FilmListComponent
+    redirectTo: 'list',
+    pathMatch: 'prefix'
   },
   {
-    path: 'discover',
-    component: DiscoverFilmMasterComponent
+    path: 'list',
+    component: FilmListComponent,
+    canActivate: [
+      ToolbarPreloaderGuard
+    ]
   },
   {
     path: 'details/:id',
     component: FilmDetailsComponent,
     resolve: {
       film: FilmDetailsResolver
-    }
+    },
+    canActivate: [
+      ToolbarPreloaderGuard
+    ],
+    data: {
+      toolbar: {
+        backRoute: ['']
+      }
+    },
+    children: [
+      {
+        path: 'test',
+        component: TestComponent,
+      }
+    ]
   }
 ];
 
 @NgModule({
   exports: [RouterModule],
-  imports: [RouterModule.forRoot(routes)]
+  imports: [RouterModule.forRoot(routes, {
+    enableTracing: true
+  } )]
 })
 export class AppRoutingModule {}
 

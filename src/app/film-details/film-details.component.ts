@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -14,9 +14,6 @@ export class FilmDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // debugger
     this.filmDetails = this.route.snapshot.data.film;
-    // this.filmDetails$.subscribe(f => console.log(f));
   }
-
 }

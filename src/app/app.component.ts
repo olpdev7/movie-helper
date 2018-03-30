@@ -14,8 +14,4 @@ export class AppComponent {
   get sidebarOpened(): boolean {
     return this.sidebarService.sidebarOpened;
   }
-
-  toggleSidebar(): void {
-    this.sidebarService.toggleSidebar();
-  }
 }

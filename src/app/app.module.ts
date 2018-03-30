@@ -14,6 +14,13 @@ import { FilmListComponent } from './film-list/film-list.component';
 import { SidebarService } from './services/sidebar.service';
 import { FilmDetailsComponent } from './film-details/film-details.component';
 import { FilmDetailsResolver } from './resolvers/film-details.resolver';
+import { DiscoverFilmFormComponent } from './discover-film-master/discover-film-form/discover-film-form.component';
+import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
+import { ToolbarContentComponent } from './toolbar-content/toolbar-content.component';
+import { FilmPreviewComponent } from './film-list/film-preview/film-preview.component';
+import { TestComponent } from './test/test.component';
+import { ToolbarService } from './services/toolbar.service';
+import { ToolbarPreloaderGuard } from './guards/toolbar-preloader.guard';
 // import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.interceptor';
 
 @NgModule({
@@ -21,7 +28,12 @@ import { FilmDetailsResolver } from './resolvers/film-details.resolver';
     AppComponent,
     DiscoverFilmMasterComponent,
     FilmListComponent,
-    FilmDetailsComponent
+    FilmDetailsComponent,
+    DiscoverFilmFormComponent,
+    SidenavContentComponent,
+    ToolbarContentComponent,
+    FilmPreviewComponent,
+    TestComponent
   ],
   imports: [
     AppRoutingModule,
@@ -34,7 +46,9 @@ import { FilmDetailsResolver } from './resolvers/film-details.resolver';
   providers: [
     FilmDetailsResolver,
     MovieDbService,
-    SidebarService
+    SidebarService,
+    ToolbarService,
+    ToolbarPreloaderGuard
     // { provide: HTTP_INTERCEPTORS, useClass: CamelCaseCoverterInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

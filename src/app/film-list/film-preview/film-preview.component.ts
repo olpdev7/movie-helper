@@ -11,9 +11,6 @@ export class FilmPreviewComponent implements OnInit {
 
   constructor(public route: ActivatedRoute) { }
 
-  ngOnInit() {
-    // console.log(this.route);
-    // debugger
-  }
+  ngOnInit() {}
 
 }

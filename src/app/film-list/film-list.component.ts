@@ -15,6 +15,7 @@ export class FilmListComponent implements OnInit {
               private sidebarService: SidebarService) { }
 
   ngOnInit() {
+    // this.movieDbService.getConfiguration().subscribe();
     this.films$ = this.movieDbService.films$;
   }
 

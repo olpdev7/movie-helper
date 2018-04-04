@@ -21,6 +21,7 @@ import { FilmPreviewComponent } from './film-list/film-preview/film-preview.comp
 import { TestComponent } from './test/test.component';
 import { ToolbarService } from './services/toolbar.service';
 import { ToolbarPreloaderGuard } from './guards/toolbar-preloader.guard';
+import { TruncateModule } from 'ng2-truncate';
 // import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.interceptor';
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ToolbarPreloaderGuard } from './guards/toolbar-preloader.guard';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    MaterialHubModule
+    MaterialHubModule,
+    TruncateModule
   ],
   providers: [
     FilmDetailsResolver,

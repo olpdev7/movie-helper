@@ -1,15 +1,14 @@
-<div class="temp">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <app-toolbar-content></app-toolbar-content>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-sidenav-container>
-    <mat-sidenav mode="side" [opened]="sidebarOpened">
-      <app-sidenav-content></app-sidenav-content>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet name="primary"></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <app-toolbar-content></app-toolbar-content>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [opened]="sidebarOpened">
+    <app-sidenav-content></app-sidenav-content>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet name="primary"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!--<footer class="footer"></footer>-->

@@ -3,6 +3,5 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-$app-mat-theme: mat-light-theme($_app-mat-primary, $_app-mat-accent, $_app-mat-warn);
-
 @include angular-material-theme($app-mat-theme);
+

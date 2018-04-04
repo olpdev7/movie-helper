@@ -6,10 +6,12 @@ import { environment } from '../../environments/environment';
 import { DiscoverResult } from '../interfaces';
 import { DiscoverParams } from "../interfaces/discover-params.interface";
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class MovieDbService {
   private _films$: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  private configuration: any;
 
   constructor(private http: HttpClient) { }
 
@@ -52,5 +54,18 @@ export class MovieDbService {
       }
     };
     return this.http.get(url, options);
+  }
+
+  getConfiguration() {
+    const url = `https://api.themoviedb.org/3/configuration`;
+    const options = {
+      params: {
+        api_key: environment.MOVIE_DB_KEY
+      }
+    };
+    return this.http.get(url, options).pipe(map(c => {
+      this.configuration = c;
+      return c;
+    }));
   }
 }

@@ -1,1 +1,17 @@
-<a [routerLink]="['', 'details', film.id]">{{film.original_title}}</a>
+<mat-card>
+  <div class="preview-container">
+    <a class="preview-image" [routerLink]="['', 'details', film.id]">
+      <img src="http://image.tmdb.org/t/p/w92/{{film.backdrop_path}}">
+    </a>
+    <div class="description">
+      <div class="title">
+        <h4>
+          <a [routerLink]="['', 'details', film.id]" >{{film.original_title}}</a>
+        </h4>
+      </div>
+      <div class="short-description">
+        {{film.overview | truncate : 150}}
+      </div>
+    </div>
+  </div>
+</mat-card>

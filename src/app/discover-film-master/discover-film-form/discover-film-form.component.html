@@ -1,4 +1,8 @@
-
-<input [(ngModel)]="discoverParams.with_genres" type="text" placeholder="genres">
-
-<input [(ngModel)]="discoverParams.primary_release_year" type="text" placeholder="release year">
+<div class="form-container">
+  <mat-form-field>
+    <input [(ngModel)]="discoverParams.with_genres" matInput type="text" placeholder="genres">
+  </mat-form-field>
+  <mat-form-field>
+    <input [(ngModel)]="discoverParams.primary_release_year" matInput type="text" placeholder="release year">
+  </mat-form-field>
+</div>

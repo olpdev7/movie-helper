@@ -24,6 +24,10 @@ export class ToolbarContentComponent implements OnInit {
     this.toolbarService.toolbarState$.subscribe(toolbarData => {
       this.toolbarData = toolbarData;
     });
+
+    this.toolbarService.toolbarPartialValue$.subscribe(toolbarData => {
+      this.toolbarData = {...this.toolbarData, ...toolbarData  };
+    });
   }
 
   toggleSidebar(): void {

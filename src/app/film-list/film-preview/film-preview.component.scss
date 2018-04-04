@@ -1,0 +1,26 @@
+.preview-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+
+  .preview-image {
+    width: 200px;
+    height: 100px;
+
+    img {
+      display: inline-block;
+      width: 200px;
+      height: 100px;
+    }
+  }
+
+  .title a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .description {
+    margin-left: 10px;
+  }
+}

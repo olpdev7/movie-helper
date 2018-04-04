@@ -5,9 +5,20 @@ mat-sidenav {
 
 }
 mat-sidenav-container {
-  height: 100%;
+  height: calc(100vh - #{$toolbar-height});
+  background: #eee;
+  //display: flex;
+  //flex-direction: column;
+
+  mat-sidenav {
+    //flex: 1 0 auto;
+  }
 }
-.temp {
-  height: 100%;
-  color: $app-mat-accent;
+
+footer {
+  display: block;
+  height: 100px;
+  width: 100%;
+  background: #111;
+  //flex-shrink: 0;
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-film-preview',
@@ -9,8 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 export class FilmPreviewComponent implements OnInit {
   @Input() film;
 
-  constructor(public route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {}
+
+  goToDetails(): void {
+    this.router.navigate(['', 'details', this.film.id]);
+  }
 
 }

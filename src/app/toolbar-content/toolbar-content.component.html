@@ -1,3 +1,5 @@
-<button (click)="toggleSidebar()">toggle</button>
-<span>TOOLBAR</span>
-<a *ngIf="toolbarData.backRoute" [routerLink]="toolbarData.backRoute">back <- </a>
+<button (click)="toggleSidebar()" mat-icon-button><mat-icon>menu</mat-icon></button>
+<span>{{toolbarData.title}}</span>
+<a *ngIf="toolbarData.backRoute" [routerLink]="toolbarData.backRoute" mat-button>
+  <mat-icon>arrow_back_ios</mat-icon> Back
+</a>

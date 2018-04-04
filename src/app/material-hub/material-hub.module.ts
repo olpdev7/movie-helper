@@ -8,11 +8,13 @@ import {
   MatButtonModule,
   MatListModule,
   MatPaginatorModule,
-  MatCardModule
+  MatCardModule,
+  MatChipsModule
 } from '@angular/material';
 
 const modules = [
   MatCardModule,
+  MatChipsModule,
   MatFormFieldModule,
   MatButtonModule,
   MatIconModule,

@@ -68,4 +68,14 @@ export class MovieDbService {
       return c;
     }));
   }
+
+  getMovieImages(id: string) {
+    const url = `https://api.themoviedb.org/3/movie/${id}/images`;
+    const options = {
+      params: {
+        api_key: environment.MOVIE_DB_KEY
+      }
+    };
+    return this.http.get<any>(url, options);
+  }
 }

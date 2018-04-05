@@ -3,9 +3,7 @@
   <h5>{{filmDetails.tagline}}</h5>
   <div class="genres">
     <mat-chip-list>
-      <mat-chip>Animation</mat-chip>
-      <mat-chip>Adventure</mat-chip>
-      <mat-chip>Family</mat-chip>
+      <mat-chip *ngFor="let genre of filmDetails.genres">{{genre.name}}</mat-chip>
     </mat-chip-list>
   </div>
   <h4>User rating {{filmDetails.vote_average}}</h4>

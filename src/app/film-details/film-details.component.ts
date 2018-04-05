@@ -17,7 +17,7 @@ export class FilmDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.filmDetails = this.route.snapshot.data.film;
-    this.movieDbService.getMovieImages(this.filmDetails.id).subscribe((imgs: any) => {
+    this.movieDbService.getMovieImages(this.filmDetails.id).subscribe(imgs => {
       this.filmImages = imgs.backdrops.slice(0, 5);
     })
   }

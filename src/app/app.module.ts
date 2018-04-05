@@ -22,6 +22,7 @@ import { TestComponent } from './test/test.component';
 import { ToolbarService } from './services/toolbar.service';
 import { ToolbarPreloaderGuard } from './guards/toolbar-preloader.guard';
 import { TruncateModule } from 'ng2-truncate';
+import { ReactiveFormsModule } from '@angular/forms';
 // import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.interceptor';
 
 @NgModule({
@@ -43,6 +44,7 @@ import { TruncateModule } from 'ng2-truncate';
     FormsModule,
     HttpClientModule,
     MaterialHubModule,
+    ReactiveFormsModule,
     TruncateModule
   ],
   providers: [

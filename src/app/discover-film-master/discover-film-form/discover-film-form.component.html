@@ -1,8 +1,8 @@
-<div class="form-container">
+<div class="form-container" [formGroup]="discoverForm">
+  <!--<mat-form-field>-->
+    <!--<input [(ngModel)]="discoverParams.with_genres" matInput type="text" placeholder="genres">-->
+  <!--</mat-form-field>-->
   <mat-form-field>
-    <input [(ngModel)]="discoverParams.with_genres" matInput type="text" placeholder="genres">
-  </mat-form-field>
-  <mat-form-field>
-    <input [(ngModel)]="discoverParams.primary_release_year" matInput type="text" placeholder="release year">
+    <input formControlName="primary_release_year" matInput type="text" placeholder="release year">
   </mat-form-field>
 </div>

@@ -5,7 +5,7 @@ mat-sidenav {
 
 }
 mat-sidenav-container {
-  height: calc(100vh - #{$toolbar-height});
+  min-height: calc(100vh - #{$toolbar-height});
   background: #eee;
   //display: flex;
   //flex-direction: column;

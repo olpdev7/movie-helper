@@ -5,7 +5,7 @@ import { SidebarService } from '../services/sidebar.service';
 import { MovieDbService } from '../services/movie-db.service';
 import {
   DiscoverParams,
-  DiscoverResult,
+  DiscoverResult, MatPaginatorOptions,
   Movie,
 } from '../interfaces';
 
@@ -17,15 +17,17 @@ import {
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
   discoverParams: DiscoverParams;
-  paginatorOptions = {
-    pageSize: 20,
-    hidePageSize: true,
-    length: 0,
-    pageIndex: 0
-  };
+  paginatorOptions: MatPaginatorOptions;
 
   constructor(private movieDbService: MovieDbService,
-              private sidebarService: SidebarService) { }
+              private sidebarService: SidebarService) {
+    this.paginatorOptions = {
+      pageSize: 20,
+      hidePageSize: true,
+      length: 0,
+      pageIndex: 0
+    };
+  }
 
   ngOnInit(): void {
     this.movieDbService.discoverResults$

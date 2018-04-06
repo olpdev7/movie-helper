@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { SidebarService } from '../../services/sidebar.service';
 import { Movie } from '../../interfaces';
@@ -12,8 +12,7 @@ import { Movie } from '../../interfaces';
 export class MoviePreviewComponent implements OnInit {
   @Input() movie: Movie;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
+  constructor(private router: Router,
               private sidebarService: SidebarService) { }
 
   ngOnInit(): void {}

@@ -34,6 +34,7 @@ export class MovieListComponent implements OnInit {
       this.paginatorOptions.length = discoverResult.total_results;
       this.paginatorOptions.pageIndex = discoverResult.page - 1;
     });
+
     this.movieDbService.discoverParams$.subscribe((discoverParams: DiscoverParams) => {
       this.discoverParams = this.discoverParams;
     });

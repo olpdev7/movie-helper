@@ -14,8 +14,10 @@ import {
 
 @Injectable()
 export class MovieDbService {
-  public readonly discoverResults$: BehaviorSubject<DiscoverResult>;
-  public readonly discoverParams$: BehaviorSubject<DiscoverParams>;
+
+  readonly discoverResults$: BehaviorSubject<DiscoverResult>;
+  readonly discoverParams$: BehaviorSubject<DiscoverParams>;
+
   private discoverParams: DiscoverParams;
   private configuration: MovieDbConfiguration;
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MovieDbService } from '../movie-db-services/services/movie-db.service';
+import { MovieDbService } from '../services/movie-db.service';
 import { DiscoverParams } from '../interfaces';
 
 @Component({
@@ -12,7 +12,8 @@ import { DiscoverParams } from '../interfaces';
 export class DiscoverMovieMasterComponent implements OnInit {
   discoverParams: DiscoverParams = {};
 
-  constructor(private movieDbService: MovieDbService, private router: Router) { }
+  constructor(private movieDbService: MovieDbService,
+              private router: Router) { }
 
   ngOnInit(): void {}
 

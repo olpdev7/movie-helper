@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material';
 
 import { SidebarService } from '../services/sidebar.service';
-import { MovieDbService } from '../movie-db-services/services/movie-db.service';
+import { MovieDbService } from '../services/movie-db.service';
 import {
   DiscoverParams,
   DiscoverResult,
@@ -28,15 +28,17 @@ export class MovieListComponent implements OnInit {
               private sidebarService: SidebarService) { }
 
   ngOnInit(): void {
-    this.movieDbService.discoverResults$.subscribe((discoverResult: DiscoverResult) => {
-      this.movies = discoverResult.results;
-      this.paginatorOptions.length = discoverResult.total_results;
-      this.paginatorOptions.pageIndex = discoverResult.page - 1;
-    });
+    this.movieDbService.discoverResults$
+      .subscribe((discoverResult: DiscoverResult) => {
+        this.movies = discoverResult.results;
+        this.paginatorOptions.length = discoverResult.total_results;
+        this.paginatorOptions.pageIndex = discoverResult.page - 1;
+      });
 
-    this.movieDbService.discoverParams$.subscribe((discoverParams: DiscoverParams) => {
-      this.discoverParams = this.discoverParams;
-    });
+    this.movieDbService.discoverParams$
+      .subscribe((discoverParams: DiscoverParams) => {
+        this.discoverParams = this.discoverParams;
+      });
   }
 
   openSidebar(): void {

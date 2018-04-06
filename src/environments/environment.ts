@@ -12,5 +12,6 @@ import { movieDbAPiKey} from './private-data';
 export const environment = {
   production: false,
   movieDbAPiKey,
-  movieDbApiRooutUrl: 'https://api.themoviedb.org/3'
+  movieDbApiRooutUrl: 'https://api.themoviedb.org/3',
+  movieDbImagesUrl: 'http://image.tmdb.org/t/p/w500'
 };

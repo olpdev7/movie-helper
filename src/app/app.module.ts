@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { MaterialHubModule } from './material-hub/material-hub.module';
 import { DiscoverMovieMasterComponent } from './discover-movie-master/discover-movie-master.component';
 import { AppRoutingModule } from './routing/app-routing.module';
-import { MovieDbService } from './movie-db-services/services/movie-db.service';
+import { MovieDbService } from './services/movie-db.service';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { SidebarService } from './services/sidebar.service';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
@@ -23,7 +23,6 @@ import { MoviePreviewComponent } from './movie-list/movie-preview/movie-preview.
 import { ToolbarService } from './services/toolbar.service';
 import { ToolbarPreloaderGuard } from './guards/toolbar-preloader.guard';
 import { StoreModule } from './store/store.module';
-import { MovieDbServicesModuleModule } from './movie-db-services/movie-db-services.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,6 @@ import { MovieDbServicesModuleModule } from './movie-db-services/movie-db-servic
     FormsModule,
     HttpClientModule,
     MaterialHubModule,
-    MovieDbServicesModuleModule,
     ReactiveFormsModule,
     TruncateModule,
     StoreModule

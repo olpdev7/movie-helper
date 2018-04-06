@@ -1,7 +1,7 @@
 <mat-card>
   <div class="preview-container">
     <a class="preview-image" (click)="goToDetails()">
-      <img src="http://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}">
+      <img src="{{getImageUrl(movie.backdrop_path)}}">
     </a>
 
     <div class="description">

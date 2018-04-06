@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SidebarService } from '../../services/sidebar.service';
+import { environment } from '../../../environments/environment';
 import { Movie } from '../../interfaces';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-movie-preview',
@@ -20,6 +21,10 @@ export class MoviePreviewComponent implements OnInit {
   goToDetails(): void {
     this.sidebarService.closeSidebar();
     this.router.navigate(['', 'details', this.movie.id]);
+  }
+
+  getImageUrl(imageFilePath): string {
+    return `${environment.movieDbImagesUrl}/${imageFilePath}`;
   }
 
 }

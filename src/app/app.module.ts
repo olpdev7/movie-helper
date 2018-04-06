@@ -2,40 +2,39 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { TruncateModule } from 'ng2-truncate';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
 import { MaterialHubModule } from './material-hub/material-hub.module';
-import { DiscoverFilmMasterComponent } from './discover-film-master/discover-film-master.component';
-import { AppRoutingModule } from './routing/routing.module';
-import { MovieDbService } from './services/movie-db.service';
-import { FilmListComponent } from './film-list/film-list.component';
+import { DiscoverMovieMasterComponent } from './discover-movie-master/discover-movie-master.component';
+import { AppRoutingModule } from './routing/app-routing.module';
+import { MovieDbService } from './movie-db-services/services/movie-db.service';
+import { MovieListComponent } from './movie-list/movie-list.component';
 import { SidebarService } from './services/sidebar.service';
-import { FilmDetailsComponent } from './film-details/film-details.component';
-import { FilmDetailsResolver } from './resolvers/film-details.resolver';
-import { DiscoverFilmFormComponent } from './discover-film-master/discover-film-form/discover-film-form.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieDetailsResolver } from './resolvers/movie-details.resolver';
+import { DiscoverMovieFormComponent } from './discover-movie-master/discover-movie-form/discover-movie-form.component';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
 import { ToolbarContentComponent } from './toolbar-content/toolbar-content.component';
-import { FilmPreviewComponent } from './film-list/film-preview/film-preview.component';
-import { TestComponent } from './test/test.component';
+import { MoviePreviewComponent } from './movie-list/movie-preview/movie-preview.component';
 import { ToolbarService } from './services/toolbar.service';
 import { ToolbarPreloaderGuard } from './guards/toolbar-preloader.guard';
-import { TruncateModule } from 'ng2-truncate';
-import { ReactiveFormsModule } from '@angular/forms';
-// import {CamelCaseCoverterInterceptor} from './services/camel-case-converter.interceptor';
+import { StoreModule } from './store/store.module';
+import { MovieDbServicesModuleModule } from './movie-db-services/movie-db-services.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DiscoverFilmMasterComponent,
-    FilmListComponent,
-    FilmDetailsComponent,
-    DiscoverFilmFormComponent,
+    DiscoverMovieMasterComponent,
+    MovieListComponent,
+    MovieDetailsComponent,
+    DiscoverMovieFormComponent,
     SidenavContentComponent,
     ToolbarContentComponent,
-    FilmPreviewComponent,
-    TestComponent
+    MoviePreviewComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -44,16 +43,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     MaterialHubModule,
+    MovieDbServicesModuleModule,
     ReactiveFormsModule,
-    TruncateModule
+    TruncateModule,
+    StoreModule
   ],
   providers: [
-    FilmDetailsResolver,
+    MovieDetailsResolver,
     MovieDbService,
     SidebarService,
     ToolbarService,
-    ToolbarPreloaderGuard
-    // { provide: HTTP_INTERCEPTORS, useClass: CamelCaseCoverterInterceptor, multi: true }
+    ToolbarPreloaderGuard,
   ],
   bootstrap: [AppComponent]
 })

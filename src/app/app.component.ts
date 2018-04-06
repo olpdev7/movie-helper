@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { SidebarService } from './services/sidebar.service';
 
 @Component({
@@ -7,8 +8,6 @@ import { SidebarService } from './services/sidebar.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
-
   constructor(private sidebarService: SidebarService) {}
 
   get sidebarOpened(): boolean {

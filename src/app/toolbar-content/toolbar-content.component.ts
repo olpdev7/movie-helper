@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/operator/filter';
-// import { Observable } from 'rxjs/Observable'
 
 import { SidebarService } from '../services/sidebar.service';
-import { Observable } from 'rxjs/Observable';
 import { ToolbarService } from '../services/toolbar.service';
+import { ToolbarData } from '../interfaces';
 
 @Component({
   selector: 'app-toolbar-content',
@@ -13,14 +10,12 @@ import { ToolbarService } from '../services/toolbar.service';
   styleUrls: ['./toolbar-content.component.scss']
 })
 export class ToolbarContentComponent implements OnInit {
-  toolbarData = {};
+  toolbarData: ToolbarData = {};
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private sidebarService: SidebarService,
+  constructor(private sidebarService: SidebarService,
               private toolbarService: ToolbarService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.toolbarService.toolbarState$.subscribe(toolbarData => {
       this.toolbarData = toolbarData;
     });

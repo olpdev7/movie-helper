@@ -1,0 +1,98 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable} from 'rxjs';
+
+import { environment } from '../../../environments/environment';
+import {
+  DiscoverParams,
+  DiscoverResult,
+  MovieDbConfiguration,
+  MovieDetails,
+  MovieImages
+} from '../../interfaces';
+
+@Injectable()
+export class MovieDbService {
+  public readonly discoverResults$: BehaviorSubject<DiscoverResult>;
+  public readonly discoverParams$: BehaviorSubject<DiscoverParams>;
+  private discoverParams: DiscoverParams;
+  private configuration: MovieDbConfiguration;
+
+  constructor(private http: HttpClient) {
+    this.discoverResults$ = new BehaviorSubject<DiscoverResult>(
+      {
+        page: 0,
+        total_results: 0,
+        total_pages: 0,
+        results: []
+      });
+    this.discoverParams$ = new BehaviorSubject({});
+  }
+
+  discoverMovies(discoverParams: DiscoverParams): Observable<DiscoverResult>{
+    const url = `${environment.movieDbApiRooutUrl}/discover/movie`;
+    const options = {
+      params: this.constructHttpParams(discoverParams)
+    };
+
+    return this.http.get<DiscoverResult>(url, options);
+  }
+
+  discoverMoviesAndBroadcast(discoverParams: DiscoverParams): void {
+    this.discoverMovies(discoverParams).subscribe((discoverResult: DiscoverResult) => {
+      this.discoverResults$.next(discoverResult);
+    });
+  }
+
+  discoverShows(): Observable<DiscoverResult> {
+    return Observable.of(null);
+  }
+
+  getMovie(id: string): Observable<MovieDetails> {
+    const url = `${environment.movieDbApiRooutUrl}/movie/${id}`;
+    const options = {
+      params: this.constructHttpParams()
+    };
+    return this.http.get<MovieDetails>(url, options);
+  }
+
+  // getGenres() {
+  //   const url = `${environment.movieDbApiRooutUrl}/genre/tv/list`;
+  //   const options = {
+  //     params: this.constructHttpParams()
+  //   };
+  //   return this.http.get(url, options);
+  // }
+
+  setConfiguration(configuration: MovieDbConfiguration): void {
+    this.configuration = configuration;
+  }
+
+  setDiscoverParams(discoverParams: DiscoverParams): void {
+    this.discoverParams = this.discoverParams;
+  }
+
+  getConfiguration(): Observable<MovieDbConfiguration> {
+    const url = `${environment.movieDbApiRooutUrl}/configuration`;
+    const options = {
+      params: this.constructHttpParams()
+    };
+    return this.http.get(url, options);
+  }
+
+  private constructHttpParams(params: any = {}): HttpParams {
+    return {
+      ...params,
+      api_key: environment.movieDbAPiKey
+    }
+  }
+
+  getMovieImages(id: string): Observable<MovieImages> {
+    const url = `${environment.movieDbApiRooutUrl}/movie/${id}/images`;
+    const options = {
+      params: this.constructHttpParams()
+    };
+    return this.http.get<MovieImages>(url, options);
+  }
+}

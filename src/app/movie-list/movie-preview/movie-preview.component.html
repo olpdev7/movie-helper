@@ -1,0 +1,17 @@
+<mat-card>
+  <div class="preview-container">
+    <a class="preview-image" (click)="goToDetails()">
+      <img src="http://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}">
+    </a>
+    <div class="description">
+      <div class="title">
+        <h4>
+          <a (click)="goToDetails()">{{movie.original_title}}</a>
+        </h4>
+      </div>
+      <div class="short-description">
+        {{movie.overview | truncate : 150}}
+      </div>
+    </div>
+  </div>
+</mat-card>

@@ -4,14 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 /*
-create file 'private-data.ts' and place MOVIE_DB_KEY there
+create file 'private-data.ts' and place movieDbAPiKey there
 temporary version until I have not api on nodejs
  */
-import { MOVIE_DB_KEY } from './private-data';
+import { movieDbAPiKey} from './private-data';
 
 export const environment = {
-  // TODO: remove this or don't use caps for other names in ths file
   production: false,
-  MOVIE_DB_KEY,
-  API_ROOT_URL: 'https://api.themoviedb.org/3/'
+  movieDbAPiKey,
+  movieDbApiRooutUrl: 'https://api.themoviedb.org/3'
 };

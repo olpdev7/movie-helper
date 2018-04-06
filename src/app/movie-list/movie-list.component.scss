@@ -1,0 +1,21 @@
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*@import '~@angular/material/_theming.scss';*/
+:host {
+  display: block;
+  text-align: center;
+  background: #eee;
+  padding-bottom: 10px;
+}
+
+.list-container {
+  //background: azure;
+  display: inline-block;
+  width: 70%;
+  text-align: left;
+
+  app-movie-preview {
+    background: #fff;
+    display: block;
+    margin-bottom: 10px;
+  }
+}

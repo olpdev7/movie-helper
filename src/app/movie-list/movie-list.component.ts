@@ -39,7 +39,7 @@ export class MovieListComponent implements OnInit {
 
     this.movieDbService.discoverParams$
       .subscribe((discoverParams: DiscoverParams) => {
-        this.discoverParams = this.discoverParams;
+        this.discoverParams = discoverParams;
       });
   }
 
@@ -50,7 +50,7 @@ export class MovieListComponent implements OnInit {
   pageChanged(page: PageEvent): void {
     const discoverParams: DiscoverParams = {
       ...this.discoverParams,
-      page: `${page.pageIndex + 1}`
+      page: page.pageIndex + 1
     };
     this.movieDbService.discoverMoviesAndBroadcast(discoverParams);
   }

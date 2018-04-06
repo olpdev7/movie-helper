@@ -14,7 +14,6 @@ import {
 
 @Injectable()
 export class MovieDbService {
-
   readonly discoverResults$: BehaviorSubject<DiscoverResult>;
   readonly discoverParams$: BehaviorSubject<DiscoverParams>;
 
@@ -47,11 +46,7 @@ export class MovieDbService {
     });
   }
 
-  // discoverShows(): Observable<DiscoverResult> {
-  //   return Observable.of(null);
-  // }
-
-  getMovie(id: string): Observable<MovieDetails> {
+  getMovieDetails(id: string): Observable<MovieDetails> {
     const url = `${environment.movieDbApiRooutUrl}/movie/${id}`;
     const options = {
       params: this.constructHttpParams()
@@ -66,14 +61,6 @@ export class MovieDbService {
   //   };
   //   return this.http.get(url, options);
   // }
-
-  setConfiguration(configuration: MovieDbConfiguration): void {
-    this.configuration = configuration;
-  }
-
-  setDiscoverParams(discoverParams: DiscoverParams): void {
-    this.discoverParams = this.discoverParams;
-  }
 
   getConfiguration(): Observable<MovieDbConfiguration> {
     const url = `${environment.movieDbApiRooutUrl}/configuration`;

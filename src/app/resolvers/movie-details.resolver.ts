@@ -9,12 +9,15 @@ import { MovieDetails } from '../interfaces';
 
 @Injectable()
 export class MovieDetailsResolver implements Resolve<MovieDetails> {
-  constructor(private movieDbService: MovieDbService, private toolbarService: ToolbarService) {}
+  constructor(private movieDbService: MovieDbService,
+              private toolbarService: ToolbarService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<MovieDetails> {
-    return this.movieDbService.getMovie(route.params.id).pipe(
+    return this.movieDbService.getMovieDetails(route.params.id).pipe(
       tap((movieDetails: MovieDetails) => {
-        this.toolbarService.toolbarPartialValue$.next({title: movieDetails.original_title});
+        this.toolbarService.toolbarPartialValue$.next({
+          title: movieDetails.original_title
+        });
       }));
   }
 }

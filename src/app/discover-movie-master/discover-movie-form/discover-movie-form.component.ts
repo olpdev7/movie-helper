@@ -9,10 +9,8 @@ import { DiscoverParams } from '../../interfaces';
   styleUrls: ['./discover-movie-form.component.scss']
 })
 export class DiscoverMovieFormComponent implements OnInit {
-
   @Input()
   discoverParams: DiscoverParams = {};
-
   @Output()
   discoverParamsChange: EventEmitter<DiscoverParams> = new EventEmitter<DiscoverParams>();
 

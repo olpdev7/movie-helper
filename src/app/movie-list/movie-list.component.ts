@@ -17,7 +17,6 @@ import {
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
   discoverParams: DiscoverParams;
-
   paginatorOptions = {
     pageSize: 20,
     hidePageSize: true,
@@ -47,7 +46,7 @@ export class MovieListComponent implements OnInit {
   pageChanged(page: PageEvent): void {
     const discoverParams: DiscoverParams = {
       ...this.discoverParams,
-      page: (page.pageIndex + 1).toString()
+      page: `${page.pageIndex + 1}`
     };
     this.movieDbService.discoverMoviesAndBroadcast(discoverParams);
   }

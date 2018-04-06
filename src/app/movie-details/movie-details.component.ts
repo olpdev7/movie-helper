@@ -10,7 +10,6 @@ import { MovieDetails, MovieImages  } from '../interfaces';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-
   movieDetails: MovieDetails;
   movieImages: MovieImages[] = [];
 

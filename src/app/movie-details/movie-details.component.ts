@@ -17,10 +17,10 @@ export class MovieDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private movieDbService: MovieDbService) { }
 
   ngOnInit(): void {
-    this.movieDetails= this.route.snapshot.data.movie;
+    this.movieDetails = this.route.snapshot.data.movieDetails;
     this.movieDbService.getMovieImages(this.movieDetails.id)
       .subscribe((movieImages: MovieImages) => {
-        this.movieImages= movieImages.backdrops.slice(0, 5);
-      })
+        this.movieImages = movieImages.backdrops.slice(0, 5);
+      });
   }
 }

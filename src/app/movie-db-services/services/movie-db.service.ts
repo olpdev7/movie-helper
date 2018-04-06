@@ -1,7 +1,7 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../../../environments/environment';
 import {
@@ -30,7 +30,7 @@ export class MovieDbService {
     this.discoverParams$ = new BehaviorSubject({});
   }
 
-  discoverMovies(discoverParams: DiscoverParams): Observable<DiscoverResult>{
+  discoverMovies(discoverParams: DiscoverParams): Observable<DiscoverResult> {
     const url = `${environment.movieDbApiRooutUrl}/discover/movie`;
     const options = {
       params: this.constructHttpParams(discoverParams)
@@ -45,9 +45,9 @@ export class MovieDbService {
     });
   }
 
-  discoverShows(): Observable<DiscoverResult> {
-    return Observable.of(null);
-  }
+  // discoverShows(): Observable<DiscoverResult> {
+  //   return Observable.of(null);
+  // }
 
   getMovie(id: string): Observable<MovieDetails> {
     const url = `${environment.movieDbApiRooutUrl}/movie/${id}`;
@@ -85,7 +85,7 @@ export class MovieDbService {
     return {
       ...params,
       api_key: environment.movieDbAPiKey
-    }
+    };
   }
 
   getMovieImages(id: string): Observable<MovieImages> {

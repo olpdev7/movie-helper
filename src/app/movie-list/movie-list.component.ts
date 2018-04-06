@@ -36,7 +36,7 @@ export class MovieListComponent implements OnInit {
     });
     this.movieDbService.discoverParams$.subscribe((discoverParams: DiscoverParams) => {
       this.discoverParams = this.discoverParams;
-    })
+    });
   }
 
   openSidebar(): void {

@@ -27,7 +27,7 @@ export class DiscoverMovieFormComponent implements OnInit {
 
     this.discoverForm.valueChanges.subscribe((changes: DiscoverParams) => {
       this.discoverParamsChange.emit(changes);
-    })
+    });
   }
 
 }

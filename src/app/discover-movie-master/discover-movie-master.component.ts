@@ -14,7 +14,7 @@ export class DiscoverMovieMasterComponent implements OnInit {
 
   constructor(private movieDbService: MovieDbService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
   discoverMovies(): void {
     this.movieDbService.discoverMoviesAndBroadcast(this.discoverParams);

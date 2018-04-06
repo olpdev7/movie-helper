@@ -9,7 +9,7 @@ export class ToolbarPreloaderGuard implements CanActivate {
   constructor(private toolbarService: ToolbarService) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let toolbarData: ToolbarData = route.data['toolbar'] || {};
+    const toolbarData: ToolbarData = route.data['toolbar'] || {};
     this.toolbarService.toolbarState$.next(toolbarData);
     return true;
   }

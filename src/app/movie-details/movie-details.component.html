@@ -13,6 +13,6 @@
   <p>{{movieDetails.overview}}</p>
 
   <div class="images">
-    <img *ngFor="let image of movieImages" src="{{getImageUrl(image.file_path)}}">
+    <img *ngFor="let image of movieImages.backdrops | slice: 0: 5" src="{{getImageUrl(image.file_path)}}">
   </div>
 </div>

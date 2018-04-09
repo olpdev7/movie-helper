@@ -12,17 +12,19 @@ import { environment } from '../../environments/environment';
 })
 export class MovieDetailsComponent implements OnInit {
   movieDetails: MovieDetails;
-  movieImages: MovieImages[] = [];
+  movieImages: MovieImages;
 
   constructor(private route: ActivatedRoute,
-              private movieDbService: MovieDbService) { }
+              private movieDbService: MovieDbService) {
+    this.movieImages = {
+      backdrops: []
+    };
+  }
 
   ngOnInit(): void {
     this.movieDetails = this.route.snapshot.data.movieDetails;
-    this.movieDbService.getMovieImages(this.movieDetails.id)
-      .subscribe((movieImages: MovieImages) => {
-        this.movieImages = movieImages.backdrops.slice(0, 5);
-      });
+    this.movieDbService.getMovieImages(this.route.snapshot.params.id)
+      .subscribe((movieImages: MovieImages) => this.movieImages = movieImages);
   }
 
   getImageUrl(imageFilePath: string): string {

@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgReduxModule, NgRedux } from '@angular-redux/store';
+import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
 import {
-  // applyMiddleware,
-  Store,
-  createStore
+  Middleware, StoreEnhancer
 } from 'redux';
+import * as storeFreeze from 'redux-freeze';
 
 import { rootReducer } from './root-reducer.reducer';
 import { AppState } from '../interfaces';
-
-export const store: Store<AppState > = createStore(
-  rootReducer,
-  // applyMiddleware(createLogger())
-);
+import { environment } from '../../environments/environment.prod';
 
 @NgModule({
   imports: [
@@ -23,7 +18,24 @@ export const store: Store<AppState > = createStore(
   declarations: []
 })
 export class StoreModule {
-  constructor(ngRedux: NgRedux<AppState >) {
-    ngRedux.provideStore(store);
+  constructor(private devTools: DevToolsExtension,
+              private ngRedux: NgRedux<AppState >) {
+    const initialState: AppState = {};
+    ngRedux.configureStore(
+      rootReducer, initialState,
+      this.getMiddlewares(), this.getEnhancers<AppState>());
+  }
+
+  getEnhancers<S>(): StoreEnhancer<S>[] {
+    return [
+      ...this.devTools.isEnabled() ? [this.devTools.enhancer()] : []
+    ];
+  }
+
+  getMiddlewares(): Middleware[] {
+    if (environment.production) {
+      return [];
+    }
+    return [storeFreeze];
   }
 }

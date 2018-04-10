@@ -1,7 +1,11 @@
 <div class="list-container">
 
   <ng-container *ngIf="movies.length">
-    <app-movie-preview *ngFor="let movie of movies" [movie]="movie"></app-movie-preview>
+    <app-movie-preview
+      *ngFor="let movie of movies"
+      [movie]="movie"
+      (linkClicked)="linkClicked($event)"
+    ></app-movie-preview>
 
     <mat-paginator
       *ngIf="paginatorOptions.length > paginatorOptions.pageSize"

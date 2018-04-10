@@ -1,10 +1,17 @@
 import { combineReducers, Reducer, ReducersMapObject } from 'redux';
 
 import { AppState } from '../interfaces';
-import { appReducer } from '../reducers/app.reducer';
+import { sidebarInitialState, sidebarReducer } from '../sidenav-content/reducers';
+import { toolbarInitialState, toolbarReducer } from '../toolbar-content/reducers';
+
+export const rootInitialState: AppState = {
+  sidebar: sidebarInitialState,
+  toolbar: toolbarInitialState
+};
 
 const reducers: ReducersMapObject = {
-  app: appReducer
+  sidebar: sidebarReducer,
+  toolbar: toolbarReducer
 };
 
 export const rootReducer: Reducer<AppState> = combineReducers(reducers);

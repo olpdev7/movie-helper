@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { dispatch, NgRedux, select } from '@angular-redux/store';
 
-import { SidebarService } from '../services/sidebar.service';
-import { ToolbarService } from '../services/toolbar.service';
-import { ToolbarData } from '../interfaces';
+import { AppState, ToolbarState } from '../interfaces';
+import { sidebarActionTypes, ToggleSidebarAction } from '../sidenav-content/actions';
 
 @Component({
   selector: 'app-toolbar-content',
@@ -10,22 +10,17 @@ import { ToolbarData } from '../interfaces';
   styleUrls: ['./toolbar-content.component.scss']
 })
 export class ToolbarContentComponent implements OnInit {
-  toolbarData: ToolbarData = {};
+  toolbarData: ToolbarState = {} as ToolbarState;
 
-  constructor(private sidebarService: SidebarService,
-              private toolbarService: ToolbarService) { }
+  constructor(private ngRedux: NgRedux<AppState>) { }
 
   ngOnInit(): void {
-    this.toolbarService.toolbarState$.subscribe(toolbarData => {
-      this.toolbarData = toolbarData;
-    });
-
-    this.toolbarService.toolbarPartialValue$.subscribe(toolbarData => {
-      this.toolbarData = {...this.toolbarData, ...toolbarData  };
-    });
+    this.ngRedux.select(['toolbar'])
+      .subscribe((toolbarData: ToolbarState) => this.toolbarData = toolbarData);
   }
 
-  toggleSidebar(): void {
-    this.sidebarService.toggleSidebar();
+  @dispatch()
+  toggleSidebar(): ToggleSidebarAction {
+    return { type: sidebarActionTypes.toggleSidebar };
   }
 }

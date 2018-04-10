@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material';
 
-import { SidebarService } from '../services/sidebar.service';
 import { MovieDbService } from '../services/movie-db.service';
 import {
   DiscoverParams,
   DiscoverResult, MatPaginatorOptions,
   Movie,
 } from '../interfaces';
+import { dispatch } from '@angular-redux/store';
+import { CloseSidebarAction, OpenSidebarAction, sidebarActionTypes } from '../sidenav-content/actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -20,7 +22,8 @@ export class MovieListComponent implements OnInit {
   paginatorOptions: MatPaginatorOptions;
 
   constructor(private movieDbService: MovieDbService,
-              private sidebarService: SidebarService) {
+              private router: Router
+  ) {
     this.paginatorOptions = {
       pageSize: 20,
       hidePageSize: true,
@@ -43,16 +46,23 @@ export class MovieListComponent implements OnInit {
       });
   }
 
-  openSidebar(): void {
-    this.sidebarService.openSidebar();
-  }
-
   pageChanged(page: PageEvent): void {
     const discoverParams: DiscoverParams = {
       ...this.discoverParams,
       page: page.pageIndex + 1
     };
     this.movieDbService.discoverMoviesAndBroadcast(discoverParams);
+  }
+
+  @dispatch()
+  openSidebar(): OpenSidebarAction {
+    return { type: sidebarActionTypes.openSidebar };
+  }
+
+  @dispatch()
+  linkClicked(routerLink: string[]): CloseSidebarAction {
+    this.router.navigate(routerLink);
+    return { type: sidebarActionTypes.closeSidebar }
   }
 
 }

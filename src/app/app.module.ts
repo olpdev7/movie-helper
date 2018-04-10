@@ -13,14 +13,12 @@ import { DiscoverMovieMasterComponent } from './discover-movie-master/discover-m
 import { AppRoutingModule } from './routing/app-routing.module';
 import { MovieDbService } from './services/movie-db.service';
 import { MovieListComponent } from './movie-list/movie-list.component';
-import { SidebarService } from './services/sidebar.service';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieDetailsResolver } from './resolvers/movie-details.resolver';
 import { DiscoverMovieFormComponent } from './discover-movie-master/discover-movie-form/discover-movie-form.component';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
 import { ToolbarContentComponent } from './toolbar-content/toolbar-content.component';
 import { MoviePreviewComponent } from './movie-list/movie-preview/movie-preview.component';
-import { ToolbarService } from './services/toolbar.service';
 import { ToolbarPreloaderGuard } from './guards/toolbar-preloader.guard';
 import { StoreModule } from './store/store.module';
 
@@ -49,8 +47,6 @@ import { StoreModule } from './store/store.module';
   providers: [
     MovieDetailsResolver,
     MovieDbService,
-    SidebarService,
-    ToolbarService,
     ToolbarPreloaderGuard,
   ],
   bootstrap: [AppComponent]

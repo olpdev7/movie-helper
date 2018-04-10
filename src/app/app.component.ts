@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { SidebarService } from './services/sidebar.service';
+import { select } from '@angular-redux/store';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,6 @@ import { SidebarService } from './services/sidebar.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private sidebarService: SidebarService) {}
-
-  get sidebarOpened(): boolean {
-    return this.sidebarService.sidebarOpened;
-  }
+  @select(['sidebar', 'opened'])
+  sidebarOpened$: boolean;
 }

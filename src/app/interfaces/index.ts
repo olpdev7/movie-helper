@@ -9,3 +9,5 @@ export * from './movie-images.interface';
 export * from './movie.interface';
 export * from './show.interface';
 export * from './toolbar-data.interface';
+export * from './toolbar-state.interface';
+export * from './sidebar-state.interface';

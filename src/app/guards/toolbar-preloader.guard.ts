@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
+import { dispatch } from '@angular-redux/store';
 
-import { ToolbarService } from '../services/toolbar.service';
-import { ToolbarData } from '../interfaces';
+import { ToolbarState } from '../interfaces';
+import { SetToolbarAction, toolbarActionTypes } from '../toolbar-content/actions';
 
 @Injectable()
 export class ToolbarPreloaderGuard implements CanActivate {
-  constructor(private toolbarService: ToolbarService) {}
-
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const toolbarData: ToolbarData = route.data['toolbar'] || {};
-    this.toolbarService.toolbarState$.next(toolbarData);
+    const toolbarData: ToolbarState = route.data['toolbar'] || {};
+    this.setToolbar(toolbarData);
     return true;
+  }
+
+  @dispatch()
+  setToolbar(toolbarData: ToolbarState): SetToolbarAction {
+    return {
+      type: toolbarActionTypes.setToolbar,
+      payload: toolbarData
+    }
   }
 }

@@ -5,7 +5,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav mode="side" [opened]="sidebarOpened">
+  <mat-sidenav mode="side" [opened]="sidebarOpened$ | async">
     <app-sidenav-content></app-sidenav-content>
   </mat-sidenav>
   <mat-sidenav-content>

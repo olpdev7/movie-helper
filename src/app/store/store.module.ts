@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store';
-import {
-  Middleware, StoreEnhancer
-} from 'redux';
+import { Middleware, StoreEnhancer } from 'redux';
 import * as storeFreeze from 'redux-freeze';
 
-import { rootReducer } from './root-reducer.reducer';
+import { rootInitialState, rootReducer } from './root-reducer.reducer';
 import { AppState } from '../interfaces';
 import { environment } from '../../environments/environment.prod';
 
@@ -20,13 +18,14 @@ import { environment } from '../../environments/environment.prod';
 export class StoreModule {
   constructor(private devTools: DevToolsExtension,
               private ngRedux: NgRedux<AppState >) {
-    const initialState: AppState = {};
     ngRedux.configureStore(
-      rootReducer, initialState,
-      this.getMiddlewares(), this.getEnhancers<AppState>());
+      rootReducer,
+      rootInitialState,
+      this.getMiddlewares(),
+      this.getEnhancers());
   }
 
-  getEnhancers<S>(): StoreEnhancer<S>[] {
+  getEnhancers(): StoreEnhancer<AppState>[] {
     return [
       ...this.devTools.isEnabled() ? [this.devTools.enhancer()] : []
     ];

@@ -12,7 +12,7 @@ export class DiscoverMovieFormComponent implements OnInit {
   @Input()
   discoverParams: DiscoverParams = {};
   @Output()
-  discoverParamsChange: EventEmitter<DiscoverParams> = new EventEmitter<DiscoverParams>();
+  discoverParamsChange: EventEmitter<DiscoverParams> = new EventEmitter();
 
   discoverForm: FormGroup;
 

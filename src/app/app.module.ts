@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { TruncateModule } from 'ng2-truncate';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { MaterialHubModule } from './material-hub/material-hub.module';
 import { DiscoverMovieMasterComponent } from './discover-movie-master/discover-movie-master.component';

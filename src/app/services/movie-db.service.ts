@@ -21,7 +21,7 @@ export class MovieDbService {
   private configuration: MovieDbConfiguration;
 
   constructor(private http: HttpClient) {
-    this.discoverResults$ = new BehaviorSubject<DiscoverResult>(
+    this.discoverResults$ = new BehaviorSubject(
       {
         page: 0,
         total_results: 0,

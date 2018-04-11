@@ -11,10 +11,13 @@ export function toolbarReducer(state: ToolbarState = toolbarInitialState, action
   switch (action.type) {
     case toolbarActionTypes.patchToolbar:
       return {
-        ...state, ...action.payload
+        ...state,
+        ...action.payload
       };
     case toolbarActionTypes.setToolbar:
-      return { ...action.payload };
+      return {
+        ...action.payload
+      };
     default:
       return state;
   }

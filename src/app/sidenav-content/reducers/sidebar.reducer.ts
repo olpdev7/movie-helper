@@ -10,11 +10,20 @@ export const sidebarInitialState: SidebarState = {
 export function sidebarReducer(state: SidebarState = sidebarInitialState, action: Action): SidebarState {
   switch (action.type) {
     case sidebarActionTypes.openSidebar:
-      return { ...state, opened: true };
+      return {
+        ...state,
+        opened: true
+      };
     case sidebarActionTypes.closeSidebar:
-      return { ...state, opened: false };
+      return {
+        ...state,
+        opened: false
+      };
     case sidebarActionTypes.toggleSidebar:
-      return { ...state, opened: !state.opened };
+      return {
+        ...state,
+        opened: !state.opened
+      };
     default:
       return state;
   }

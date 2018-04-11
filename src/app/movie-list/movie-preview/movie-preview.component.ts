@@ -22,7 +22,4 @@ export class MoviePreviewComponent implements OnInit {
   getImageUrl(imageFilePath): string {
     return `${environment.movieDbImagesUrl}/${imageFilePath}`;
   }
-
-
-
 }

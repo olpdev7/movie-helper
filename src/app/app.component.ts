@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { select } from '@angular-redux/store';
 })
 export class AppComponent {
   @select(['sidebar', 'opened'])
-  sidebarOpened$: boolean;
+  sidebarOpened$: Observable<boolean>;
 }

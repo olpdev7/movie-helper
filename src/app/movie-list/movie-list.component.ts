@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material';
-
-import { MovieDbService } from '../services/movie-db.service';
-import {
-  DiscoverParams,
-  DiscoverResult, MatPaginatorOptions,
-  Movie,
-} from '../interfaces';
 import { dispatch } from '@angular-redux/store';
-import { CloseSidebarAction, OpenSidebarAction, sidebarActionTypes } from '../sidenav-content/actions';
+import { PageEvent } from '@angular/material';
 import { Router } from '@angular/router';
+
+import {
+DiscoverParams,
+DiscoverResult, MatPaginatorOptions,
+Movie,
+} from '../interfaces';
+import { CloseSidebarAction, OpenSidebarAction, sidebarActionTypes } from '../sidenav-content/actions';
+import { MovieDbService } from '../services/movie-db.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -64,5 +64,4 @@ export class MovieListComponent implements OnInit {
     this.router.navigate(routerLink);
     return { type: sidebarActionTypes.closeSidebar }
   }
-
 }

@@ -1,15 +1,18 @@
 <mat-card>
   <div class="preview-container">
-    <a class="preview-image" (click)="goToDetails()">
+    <a class="preview-image link" (click)="goToDetails()">
       <img src="{{getImageUrl(movie.backdrop_path)}}">
     </a>
 
     <div class="description">
       <div class="title">
         <h4>
-          <a (click)="goToDetails()">{{movie.original_title}}</a>
+          <a class="link" (click)="goToDetails()">{{movie.original_title}}</a>
         </h4>
       </div>
+      <a class="mobile-preview-image link" (click)="goToDetails()">
+        <img src="{{getImageUrl(movie.backdrop_path)}}">
+      </a>
       <div class="short-description">
         {{movie.overview | truncate : 150}}
       </div>

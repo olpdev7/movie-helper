@@ -1,7 +1,7 @@
 <div class="list-container">
-
   <ng-container *ngIf="movies.length">
     <app-movie-preview
+      class="movie-preview"
       *ngFor="let movie of movies"
       [movie]="movie"
       (linkClicked)="linkClicked($event)"
@@ -14,12 +14,18 @@
       [hidePageSize]="paginatorOptions.hidePageSize"
       [pageIndex]="paginatorOptions.pageIndex"
       (page)="pageChanged($event)"
-    >
-    </mat-paginator>
+    ></mat-paginator>
   </ng-container>
 
   <ng-container *ngIf="!movies.length">
-    <button (click)="openSidebar()" mat-raised-button>Use master to discover movie</button>
+    <div class="disocer-movies-hint">
+      <mat-icon class="title-icon">find_in_page</mat-icon>
+      <p>
+        Use master to discover movies
+      </p>
+      <button (click)="openSidebar()" mat-raised-button>Discover movies
+        <!--<mat-icon>search</mat-icon>-->
+      </button>
+    </div>
   </ng-container>
-
 </div>

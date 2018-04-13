@@ -5,11 +5,15 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
+
   <mat-sidenav mode="side" [opened]="sidebarOpened$ | async">
     <app-sidenav-content></app-sidenav-content>
   </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet name="primary"></router-outlet>
+    <div class="progress-bar-container">
+      <mat-progress-bar *ngIf="showProgressBar" mode="query" color="primary"></mat-progress-bar>
+    </div>
+    <router-outlet></router-outlet>
+    <!--<footer class="footer">FOOTER</footer>-->
   </mat-sidenav-content>
 </mat-sidenav-container>
-<!--<footer class="footer"></footer>-->

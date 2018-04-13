@@ -2,16 +2,24 @@
 
 mat-sidenav {
   width: 400px;
-
+  @media (max-width: $screen-sm) {
+    width: 100%;
+  }
 }
 mat-sidenav-container {
-  min-height: calc(100vh - #{$toolbar-height});
   background: #eee;
-  //display: flex;
-  //flex-direction: column;
+  display: block;
+  position: absolute;
+  @include set-toolbar-value-to-property(top);
+  bottom: 0;
+  left: 0;
+  right: 0;
 
   mat-sidenav {
-    //flex: 1 0 auto;
+  }
+
+  mat-sidenav-content {
+    width: 100%;
   }
 }
 
@@ -19,6 +27,15 @@ footer {
   display: block;
   height: 100px;
   width: 100%;
-  background: #111;
-  //flex-shrink: 0;
+  background: #49c;
+}
+
+mat-progress-bar {
+  position: fixed;
+  z-index: 1;
+}
+
+.progress-bar-container {
+  position: relative;
+  top: 1px;
 }

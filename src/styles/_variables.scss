@@ -25,3 +25,22 @@ $app-mat-warn: mat-color($_app-mat-warn);
 //$app-mat-foreground: mat-color($_app-mat-foreground);
 //$app-mat-background: mat-color($_app-mat-background);
 $toolbar-height: 64px;
+$toolbar-height2: 56px;
+
+
+$screen-xs: 480px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xlg: 1200px;
+
+$material-breakpoint-xsmall: 599px;
+
+
+@mixin set-toolbar-value-to-property($property) {
+  #{$property}: $toolbar-height;
+
+  @media (max-width: $material-breakpoint-xsmall) {
+    #{$property}: $toolbar-height2;
+  }
+}

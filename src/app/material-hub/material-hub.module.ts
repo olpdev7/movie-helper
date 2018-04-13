@@ -9,7 +9,8 @@ import {
   MatListModule,
   MatPaginatorModule,
   MatCardModule,
-  MatChipsModule
+  MatChipsModule,
+  MatProgressBarModule,
 } from '@angular/material';
 
 const modules = [
@@ -22,7 +23,8 @@ const modules = [
   MatListModule,
   MatSidenavModule,
   MatToolbarModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatProgressBarModule,
 ];
 
 @NgModule({

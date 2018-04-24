@@ -4,9 +4,10 @@ import { PageEvent } from '@angular/material';
 import { Router } from '@angular/router';
 
 import {
-DiscoverParams,
-DiscoverResult, MatPaginatorOptions,
-Movie,
+  DiscoverParams,
+  DiscoverResult,
+  MatPaginatorOptions,
+  Movie,
 } from '../interfaces';
 import { CloseSidebarAction, OpenSidebarAction, sidebarActionTypes } from '../sidenav-content/actions';
 import { MovieDbService } from '../services/movie-db.service';

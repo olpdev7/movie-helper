@@ -5,15 +5,17 @@
   flex-direction: row;
   align-items: center;
   padding: 5px;
+  $img-height: 100px;
+  $img-weight: 200px;
 
   .preview-image {
-    width: 200px;
-    height: 100px;
+    width: $img-weight;
+    height: $img-height;
 
     img {
       display: inline-block;
-      width: 200px;
-      height: 100px;
+      width: $img-weight;
+      height: $img-height;
     }
 
     @media (max-width: $screen-sm) {
@@ -22,7 +24,7 @@
   }
 
   .title a {
-    color: #000;
+    color: $app-mat-color-text;
     text-decoration: none;
   }
 

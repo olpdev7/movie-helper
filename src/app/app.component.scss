@@ -1,19 +1,19 @@
 @import 'variables';
 
 mat-sidenav {
-  width: 400px;
+  width: $sidebar-width;
   @media (max-width: $screen-sm) {
     width: 100%;
   }
 }
 mat-sidenav-container {
-  background: #eee;
   display: block;
   position: absolute;
   @include set-toolbar-value-to-property(top);
   bottom: 0;
   left: 0;
   right: 0;
+  background: $app-mat-color-background;
 
   mat-sidenav {
   }
@@ -21,13 +21,6 @@ mat-sidenav-container {
   mat-sidenav-content {
     width: 100%;
   }
-}
-
-footer {
-  display: block;
-  height: 100px;
-  width: 100%;
-  background: #49c;
 }
 
 mat-progress-bar {

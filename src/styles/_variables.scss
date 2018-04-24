@@ -19,13 +19,19 @@ $_app-mat-background: map-get($app-mat-theme, background);
 colors that can be used in other components for styling
  */
 
-$app-mat-primary: mat-color($_app-mat-primary);
-$app-mat-accent: mat-color($_app-mat-accent);
-$app-mat-warn: mat-color($_app-mat-warn);
+$app-mat-color-primary: mat-color($_app-mat-primary);
+$app-mat-color-accent: mat-color($_app-mat-accent);
+$app-mat-color-warn: mat-color($_app-mat-warn);
+$app-mat-color-background: #eee;
+$app-mat-color-background2: #fff;
+$app-mat-color-text: #000;
+$app-mat-color-text2: #AAAA9E;
 //$app-mat-foreground: mat-color($_app-mat-foreground);
 //$app-mat-background: mat-color($_app-mat-background);
 $toolbar-height: 64px;
 $toolbar-height2: 56px;
+
+$sidebar-width: 400px;
 
 
 $screen-xs: 480px;

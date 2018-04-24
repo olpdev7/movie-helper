@@ -24,19 +24,19 @@
   margin-bottom: 10px;
 }
 
-.disocer-movies-hint {
+.discover-movies-hint {
   padding: 50px;
   text-align: center;
   border-radius: 2px;
   box-shadow: inset 0px 0px 16px -4px rgba(0,0,0,0.26);
 
   p {
-    color: #AAAA9E;
+    color: $app-mat-color-text2;
   }
   .title-icon {
     font-size: 36pt;
   }
   mat-icon {
-    color: #aaa;
+    color: $app-mat-color-text2;
   }
 }

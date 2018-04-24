@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showProgressBar: boolean;
+  showProgressBar: boolean = true;
   @select(['sidebar', 'opened'])
   sidebarOpened$: Observable<boolean>;
 }

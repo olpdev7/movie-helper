@@ -5,10 +5,11 @@
   flex-direction: row;
   align-items: center;
   padding: 5px;
-  $img-height: 100px;
-  $img-weight: 200px;
 
   .preview-image {
+    $img-height: 100px;
+    $img-weight: 200px;
+
     width: $img-weight;
     height: $img-height;
 

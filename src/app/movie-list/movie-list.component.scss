@@ -1,6 +1,7 @@
 @import 'variables';
 
 :host {
+  height: 100%;
   display: flex;
   justify-content: center;
 }
@@ -34,7 +35,7 @@
     color: $app-mat-color-text2;
   }
   .title-icon {
-    font-size: 36pt;
+    font-size: 32pt;
   }
   mat-icon {
     color: $app-mat-color-text2;

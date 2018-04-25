@@ -1,34 +1,65 @@
 @import 'variables';
 
-mat-sidenav {
-  width: $sidebar-width;
-  @media (max-width: $screen-sm) {
-    width: 100%;
-  }
-}
-mat-sidenav-container {
+:host {
   display: block;
+  height: 100vh;
+}
+
+mat-toolbar {
   position: absolute;
-  @include set-toolbar-value-to-property(top);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: $app-mat-color-background;
+  z-index: 2;
+}
+
+mat-sidenav-container {
+  @include set-toolbar-value-to-property(padding-top);
+  height: 100%;
 
   mat-sidenav {
+    width: $sidebar-width;
+    @include set-toolbar-value-to-property(padding-top);
+
+    @media (max-width: $screen-sm) {
+      width: 100%;
+    }
   }
 
   mat-sidenav-content {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      flex: 1 0 calc(100% - #{$toolbar-height});
+
+      @media (max-width: $material-breakpoint-xsmall) {
+        flex: 1 0 calc(100% - #{$toolbar-height2});
+      }
+    }
+
+    .progress-bar-container {
+      position: relative;
+      top: 1px;
+
+      mat-progress-bar {
+        position: fixed;
+        z-index: 1;
+      }
+    }
   }
-}
 
-mat-progress-bar {
-  position: fixed;
-  z-index: 1;
-}
+  footer {
+    background: $app-mat-color-primary;
+    @include set-toolbar-value-to-property(height);
+    flex-shrink: 0;
 
-.progress-bar-container {
-  position: relative;
-  top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fa {
+      margin-left: 20px;
+      font-size: $nav-icon-size;
+      text-decoration: none;
+      color: #fff;
+    }
+  }
 }

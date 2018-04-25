@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { dispatch, NgRedux, select } from '@angular-redux/store';
+import { dispatch, NgRedux } from '@angular-redux/store';
 
 import { AppState, ToolbarState } from '../interfaces';
 import { sidebarActionTypes, ToggleSidebarAction } from '../sidenav-content/actions';

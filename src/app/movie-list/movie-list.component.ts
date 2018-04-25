@@ -39,6 +39,8 @@ export class MovieListComponent implements OnInit {
         this.movies = discoverResult.results;
         this.paginatorOptions.length = discoverResult.total_results;
         this.paginatorOptions.pageIndex = discoverResult.page - 1;
+        // TODO: change this
+        document.querySelector('mat-sidenav-content').scrollTo(0, 0);
       });
 
     this.movieDbService.discoverParams$

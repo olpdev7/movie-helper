@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
@@ -9,11 +9,9 @@ import { Movie } from '../../interfaces';
   templateUrl: './movie-preview.component.html',
   styleUrls: ['./movie-preview.component.scss']
 })
-export class MoviePreviewComponent implements OnInit {
+export class MoviePreviewComponent {
   @Input() movie: Movie;
   @Output() linkClicked: EventEmitter<string[]> = new EventEmitter();
-
-  ngOnInit(): void {}
 
   goToDetails(): void {
     this.linkClicked.emit(['', 'details', this.movie.id]);

@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -19,6 +19,10 @@ export class MovieDbService {
 
   private discoverParams: DiscoverParams;
   private configuration: MovieDbConfiguration;
+  private defaultParams: any = {
+    api_key: environment.movieDbAPiKey
+  };
+
 
   constructor(private http: HttpClient) {
     this.discoverResults$ = new BehaviorSubject(
@@ -34,7 +38,10 @@ export class MovieDbService {
   discoverMovies(discoverParams: DiscoverParams): Observable<DiscoverResult> {
     const url = `${environment.movieDbApiRooutUrl}/discover/movie`;
     const options = {
-      params: this.constructHttpParams(discoverParams)
+      params: {
+        ...this.discoverParams,
+        ...this.defaultParams
+      }
     };
 
     return this.http.get<DiscoverResult>(url, options);
@@ -43,13 +50,15 @@ export class MovieDbService {
   discoverMoviesAndBroadcast(discoverParams: DiscoverParams): void {
     this.discoverMovies(discoverParams).subscribe((discoverResult: DiscoverResult) => {
       this.discoverResults$.next(discoverResult);
+    }, (err: HttpErrorResponse) => {
+      console.log(err)
     });
   }
 
   getMovieDetails(id: string): Observable<MovieDetails> {
     const url = `${environment.movieDbApiRooutUrl}/movie/${id}`;
     const options = {
-      params: this.constructHttpParams()
+      params: this.defaultParams
     };
     return this.http.get<MovieDetails>(url, options);
   }
@@ -65,22 +74,16 @@ export class MovieDbService {
   getConfiguration(): Observable<MovieDbConfiguration> {
     const url = `${environment.movieDbApiRooutUrl}/configuration`;
     const options = {
-      params: this.constructHttpParams()
+      params: this.defaultParams
     };
     return this.http.get(url, options);
   }
 
-  private constructHttpParams(params: any = {}): HttpParams {
-    return {
-      ...params,
-      api_key: environment.movieDbAPiKey
-    };
-  }
 
   getMovieImages(id: string): Observable<MovieImages> {
     const url = `${environment.movieDbApiRooutUrl}/movie/${id}/images`;
     const options = {
-      params: this.constructHttpParams()
+      params: this.defaultParams
     };
     return this.http.get<MovieImages>(url, options);
   }

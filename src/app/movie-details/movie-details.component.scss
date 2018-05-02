@@ -1,9 +1,9 @@
 @import 'variables';
 
 :host {
-  text-align: center;
   display: block;
   height: 100%;
+  text-align: center;
   background: $app-mat-color-background2;
 }
 
@@ -13,8 +13,13 @@
   width: 80%;
 
   .images {
+    margin-bottom: 10px;
+
     img {
+      //margin: 2px 2px 2px 0;
       width: 33%;
+      float: left;
+
       @media (max-width: $screen-lg) {
         width: 50%;
       }
@@ -24,6 +29,12 @@
     }
     @media(max-width: $screen-sm) {
       text-align: center;
+    }
+  }
+
+  .genres {
+    .mat-chip {
+      margin: 2px 2px 2px 0;
     }
   }
 }

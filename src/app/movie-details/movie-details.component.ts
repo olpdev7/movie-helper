@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { MovieDbService } from '../services/movie-db.service';
 import { MovieDetails, MovieImages  } from '../interfaces';
@@ -24,7 +25,11 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.movieDetails = this.route.snapshot.data.movieDetails;
     this.movieDbService.getMovieImages(this.route.snapshot.params.id)
-      .subscribe((movieImages: MovieImages) => this.movieImages = movieImages);
+      .subscribe(
+        (movieImages: MovieImages) => this.movieImages = movieImages,
+        (error: HttpErrorResponse) => {
+          console.log(error);
+        });
   }
 
   getImageUrl(imageFilePath: string): string {

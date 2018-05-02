@@ -2,8 +2,9 @@
   <mat-icon>menu</mat-icon>
 </button>
 
+<a *ngIf="toolbarData.backRoute" [routerLink]="toolbarData.backRoute" mat-button>
+  <mat-icon>keyboard_backspace</mat-icon>
+</a>
+
 <span>{{toolbarData.title}}</span>
 
-<a *ngIf="toolbarData.backRoute" [routerLink]="toolbarData.backRoute" mat-button>
-  <mat-icon>arrow_back_ios</mat-icon> Back
-</a>

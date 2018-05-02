@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { DiscoverParams } from '../../interfaces';
 
@@ -9,10 +9,8 @@ import { DiscoverParams } from '../../interfaces';
   styleUrls: ['./discover-movie-form.component.scss']
 })
 export class DiscoverMovieFormComponent implements OnInit {
-  @Input()
-  discoverParams: DiscoverParams = {};
-  @Output()
-  discoverParamsChange: EventEmitter<DiscoverParams> = new EventEmitter();
+  @Input() discoverParams: DiscoverParams = {};
+  @Output() discoverParamsChange: EventEmitter<DiscoverParams> = new EventEmitter();
 
   discoverForm: FormGroup;
 
@@ -20,7 +18,10 @@ export class DiscoverMovieFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.discoverForm = this.formBuilder.group({
-      primary_release_year: ''
+      primary_release_year: ['', [
+        Validators.pattern(/^(19[0-9]\d|20[0-4]\d|2050)$/),
+        Validators.required
+      ]]
     });
 
     this.discoverForm.valueChanges.subscribe((changes: DiscoverParams) => {

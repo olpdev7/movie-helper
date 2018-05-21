@@ -16,6 +16,7 @@
   @media (min-width: $screen-xlg) {
     width: 50%;
   }
+
   @media (min-width: $screen-md) {
     width: 70%;
   }
@@ -34,9 +35,11 @@
   p {
     color: $app-mat-color-text2;
   }
+
   .title-icon {
     font-size: 32pt;
   }
+
   mat-icon {
     color: $app-mat-color-text2;
   }

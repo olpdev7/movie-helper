@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 
-import { SidebarState } from '../../interfaces';
 import { sidebarActionTypes } from '../actions';
+import { SidebarState } from '../../interfaces';
 
 export const sidebarInitialState: SidebarState = {
   opened: false

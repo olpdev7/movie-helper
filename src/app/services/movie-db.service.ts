@@ -1,6 +1,6 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../../environments/environment';
@@ -11,6 +11,7 @@ import {
   MovieDetails,
   MovieImages
 } from '../interfaces/index';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class MovieDbService {
@@ -19,10 +20,9 @@ export class MovieDbService {
 
   private discoverParams: DiscoverParams;
   private configuration: MovieDbConfiguration;
-  private defaultParams: any = {
+  private defaultParams = {
     api_key: environment.movieDbAPiKey
   };
-
 
   constructor(private http: HttpClient) {
     this.discoverResults$ = new BehaviorSubject(
@@ -39,20 +39,25 @@ export class MovieDbService {
     const url = `${environment.movieDbApiRooutUrl}/discover/movie`;
     const options = {
       params: {
-        ...this.discoverParams,
+        ...discoverParams,
         ...this.defaultParams
-      }
+      } as any
     };
 
     return this.http.get<DiscoverResult>(url, options);
   }
 
-  discoverMoviesAndBroadcast(discoverParams: DiscoverParams): void {
-    this.discoverMovies(discoverParams).subscribe((discoverResult: DiscoverResult) => {
-      this.discoverResults$.next(discoverResult);
-    }, (err: HttpErrorResponse) => {
-      console.log(err)
-    });
+  discoverMoviesAndBroadcast(discoverParams: DiscoverParams): Observable<DiscoverResult> {
+    return this.discoverMovies(discoverParams)
+      .pipe(
+        tap((discoverResult: DiscoverResult) => {
+          this.discoverResults$.next(discoverResult);
+        }),
+        catchError((err: HttpErrorResponse) => {
+          console.log(err);
+          return [];
+        })
+      );
   }
 
   getMovieDetails(id: string): Observable<MovieDetails> {
@@ -63,14 +68,6 @@ export class MovieDbService {
     return this.http.get<MovieDetails>(url, options);
   }
 
-  // getGenres() {
-  //   const url = `${environment.movieDbApiRooutUrl}/genre/tv/list`;
-  //   const options = {
-  //     params: this.constructHttpParams()
-  //   };
-  //   return this.http.get(url, options);
-  // }
-
   getConfiguration(): Observable<MovieDbConfiguration> {
     const url = `${environment.movieDbApiRooutUrl}/configuration`;
     const options = {
@@ -78,7 +75,6 @@ export class MovieDbService {
     };
     return this.http.get(url, options);
   }
-
 
   getMovieImages(id: string): Observable<MovieImages> {
     const url = `${environment.movieDbApiRooutUrl}/movie/${id}/images`;

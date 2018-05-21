@@ -15,8 +15,8 @@ mat-sidenav-container {
   height: 100%;
 
   mat-sidenav {
-    width: $sidebar-width;
     @include set-toolbar-value-to-property(padding-top);
+    width: $sidebar-width;
 
     @media (max-width: $screen-sm) {
       width: 100%;
@@ -28,7 +28,6 @@ mat-sidenav-container {
     flex-direction: column;
 
     .content {
-      //flex: 1 0;
       flex-basis: calc(100% - #{$toolbar-height});
 
       @media (max-width: $material-breakpoint-xsmall) {
@@ -48,14 +47,13 @@ mat-sidenav-container {
   }
 
   footer {
-    background: $app-mat-color-primary;
     @include set-toolbar-value-to-property(height);
-    flex-shrink: 0;
     margin-top: 5px;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    background: $app-mat-color-primary;
 
     .fa {
       margin-left: 20px;

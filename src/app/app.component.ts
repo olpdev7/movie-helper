@@ -15,6 +15,9 @@ export class AppComponent {
   @select(['sidebar', 'opened'])
   sidebarOpened$: Observable<boolean>;
 
+  @select(['appUtils', 'progressBarShowed'])
+  progressBarShowed$: Observable<boolean>;
+
   @dispatch()
   onCLosedStart(): CloseSidebarAction {
     return {

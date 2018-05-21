@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { dispatch } from '@angular-redux/store';
 import { Router } from '@angular/router';
+import { dispatch } from '@angular-redux/store';
 
-import { MovieDbService } from '../services/movie-db.service';
 import { DiscoverParams } from '../interfaces';
-import { CloseSidebarAction, sidebarActionTypes } from '../sidenav-content/actions';
 import { DiscoverMovieFormComponent } from './discover-movie-form/discover-movie-form.component';
+import { MovieDbService } from '../services/movie-db.service';
+import { CloseSidebarAction, sidebarActionTypes } from '../sidenav-content/actions';
 
 @Component({
   selector: 'app-discover-movie-master',
@@ -22,7 +22,7 @@ export class DiscoverMovieMasterComponent {
               private router: Router) { }
 
   discoverMovies(): void {
-    this.movieDbService.discoverMoviesAndBroadcast(this.discoverParams);
+    this.movieDbService.discoverMoviesAndBroadcast(this.discoverParams).subscribe();
     this.movieDbService.discoverParams$.next(this.discoverParams);
     this.closeSidebar();
     this.router.navigate(['', 'list']);

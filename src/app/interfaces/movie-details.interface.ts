@@ -1,5 +1,7 @@
+import { Genre } from './genre.interface';
+
 export interface MovieDetails {
-  genres: any[];
+  genres: Genre[];
   id: string;
   original_title: string;
   backdrop_path: string;

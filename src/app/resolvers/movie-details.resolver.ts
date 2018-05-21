@@ -1,12 +1,12 @@
-import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { dispatch } from '@angular-redux/store';
+import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable, ObservableInput } from 'rxjs/Observable';
 import { catchError, tap } from 'rxjs/operators';
-import { dispatch } from '@angular-redux/store';
-import { HttpErrorResponse } from '@angular/common/http';
 
-import { MovieDbService } from '../services/movie-db.service';
 import { MovieDetails } from '../interfaces';
+import { MovieDbService } from '../services/movie-db.service';
 import { PatchToolbarAction, toolbarActionTypes } from '../toolbar-content/actions';
 
 @Injectable()

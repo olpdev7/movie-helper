@@ -11,14 +11,13 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="progress-bar-container">
-      <mat-progress-bar *ngIf="showProgressBar" mode="query" color="primary"></mat-progress-bar>
+      <mat-progress-bar *ngIf="progressBarShowed$ | async" mode="query" color="primary"></mat-progress-bar>
     </div>
     <div class="content">
       <router-outlet></router-outlet>
     </div>
     <footer>
       <div>
-        <!--<a href="#" class="fa fa-skype"></a>-->
         <a href="#" class="fa fa-linkedin"></a>
         <a href="#" class="fa fa-github"></a>
         <a href="#" class="fa fa-bitbucket"></a>

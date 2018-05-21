@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { dispatch } from '@angular-redux/store';
 import { PageEvent } from '@angular/material';
+import { dispatch } from '@angular-redux/store';
 import { Router } from '@angular/router';
 
+import { appUtilsActionTypes } from '../actions/index';
 import {
   DiscoverParams,
   DiscoverResult,
@@ -54,7 +55,10 @@ export class MovieListComponent implements OnInit {
       ...this.discoverParams,
       page: page.pageIndex + 1
     };
-    this.movieDbService.discoverMoviesAndBroadcast(discoverParams);
+    this.showProgressBar();
+    this.movieDbService.discoverMoviesAndBroadcast(discoverParams).subscribe(() => {
+      this.hideProgressBar();
+    });
   }
 
   @dispatch()
@@ -64,7 +68,22 @@ export class MovieListComponent implements OnInit {
 
   @dispatch()
   linkClicked(routerLink: string[]): CloseSidebarAction {
+    this.showProgressBar();
     this.router.navigate(routerLink);
     return { type: sidebarActionTypes.closeSidebar }
+  }
+
+  @dispatch()
+  showProgressBar() {
+    return {
+      type: appUtilsActionTypes.showProgressBar
+    }
+  }
+
+  @dispatch()
+  hideProgressBar() {
+    return {
+      type: appUtilsActionTypes.hideProgressBar
+    }
   }
 }

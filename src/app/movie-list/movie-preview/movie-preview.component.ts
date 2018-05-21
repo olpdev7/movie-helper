@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
 import { Movie } from '../../interfaces';

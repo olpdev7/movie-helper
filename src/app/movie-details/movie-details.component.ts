@@ -1,10 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { dispatch } from '@angular-redux/store';
 
-import { MovieDbService } from '../services/movie-db.service';
-import { MovieDetails, MovieImages  } from '../interfaces';
+import { HideProgressBarAction } from '../actions/app-utils.actions';
+import { appUtilsActionTypes } from '../actions/index';
 import { environment } from '../../environments/environment';
+import { MovieDetails, MovieImages  } from '../interfaces';
+import { MovieDbService } from '../services/movie-db.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -29,10 +32,18 @@ export class MovieDetailsComponent implements OnInit {
         (movieImages: MovieImages) => this.movieImages = movieImages,
         (error: HttpErrorResponse) => {
           console.log(error);
-        });
+        },
+        () => this.hideProgressBar());
   }
 
   getImageUrl(imageFilePath: string): string {
     return `${environment.movieDbImagesUrl}/${imageFilePath}`;
+  }
+
+  @dispatch()
+  hideProgressBar(): HideProgressBarAction {
+    return {
+      type: appUtilsActionTypes.hideProgressBar
+    }
   }
 }

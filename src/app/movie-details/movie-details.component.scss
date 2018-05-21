@@ -16,17 +16,18 @@
     margin-bottom: 10px;
 
     img {
-      //margin: 2px 2px 2px 0;
       width: 33%;
       float: left;
 
       @media (max-width: $screen-lg) {
         width: 50%;
       }
+
       @media(max-width: $screen-sm) {
         width: 100%;
       }
     }
+
     @media(max-width: $screen-sm) {
       text-align: center;
     }

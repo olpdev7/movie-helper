@@ -4,9 +4,9 @@ import { NgReduxModule, NgRedux, DevToolsExtension } from '@angular-redux/store'
 import { Middleware, StoreEnhancer } from 'redux';
 import * as storeFreeze from 'redux-freeze';
 
-import { rootInitialState, rootReducer } from './root-reducer.reducer';
-import { AppState } from '../interfaces';
 import { environment } from '../../environments/environment.prod';
+import { AppState } from '../interfaces';
+import { rootInitialState, rootReducer } from './root-reducer.reducer';
 
 @NgModule({
   imports: [

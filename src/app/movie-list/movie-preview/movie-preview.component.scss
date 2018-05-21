@@ -35,9 +35,11 @@
 
   .mobile-preview-image {
     display: block;
+
     img {
       width: 100%;
     }
+
     @media (min-width: $screen-sm) {
       display: none;
     }

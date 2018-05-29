@@ -2,9 +2,12 @@
   <mat-icon>menu</mat-icon>
 </button>
 
-<a *ngIf="toolbarData.backRoute" [routerLink]="toolbarData.backRoute" mat-button>
-  <mat-icon>keyboard_backspace</mat-icon>
-</a>
+<ng-container *ngTemplateOutlet="toolbarAsyncPart; context: {toolbarData: toolbarData$ | async}"></ng-container>
 
-<span>{{toolbarData.title}}</span>
+<ng-template #toolbarAsyncPart let-toolbarData="toolbarData">
+  <a *ngIf="toolbarData.backRoute" [routerLink]="toolbarData.backRoute" mat-button>
+    <mat-icon>keyboard_backspace</mat-icon>
+  </a>
 
+  <span>{{toolbarData.title}}</span>
+</ng-template>

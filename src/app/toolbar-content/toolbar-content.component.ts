@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { dispatch, NgRedux, select } from '@angular-redux/store';
+import { Component } from '@angular/core';
+import { dispatch, select } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 
-import { AppState, ToolbarState } from '../interfaces';
+import { ToolbarState } from '../interfaces';
 import { sidebarActionTypes, ToggleSidebarAction } from '../sidenav-content/actions';
 
 @Component({
@@ -10,18 +10,12 @@ import { sidebarActionTypes, ToggleSidebarAction } from '../sidenav-content/acti
   templateUrl: './toolbar-content.component.html',
   styleUrls: ['./toolbar-content.component.scss']
 })
-export class ToolbarContentComponent implements OnInit {
-  toolbarData: ToolbarState = {} as ToolbarState;
-
+export class ToolbarContentComponent {
   @select(['appUtils', 'progressBarShowed'])
   progressBarShowed$: Observable<boolean>;
 
-  constructor(private ngRedux: NgRedux<AppState>) { }
-
-  ngOnInit(): void {
-    this.ngRedux.select(['toolbar'])
-      .subscribe((toolbarData: ToolbarState) => this.toolbarData = toolbarData);
-  }
+  @select(['toolbar'])
+  toolbarData$: Observable<ToolbarState>;
 
   @dispatch()
   toggleSidebar(): ToggleSidebarAction {

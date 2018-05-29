@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { catchError, tap } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import {
@@ -9,9 +10,8 @@ import {
   DiscoverResult,
   MovieDbConfiguration,
   MovieDetails,
-  MovieImages
+MovieImages
 } from '../interfaces/index';
-import { catchError, tap } from 'rxjs/operators';
 
 @Injectable()
 export class MovieDbService {

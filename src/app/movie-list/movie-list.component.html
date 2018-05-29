@@ -1,5 +1,5 @@
 <div class="list-container">
-  <ng-container *ngIf="movies.length">
+  <ng-container *ngIf="movies.length; else emptyMoviesList">
     <app-movie-preview
       class="movie-preview"
       *ngFor="let movie of movies"
@@ -17,7 +17,7 @@
     ></mat-paginator>
   </ng-container>
 
-  <ng-container *ngIf="!movies.length">
+  <ng-template #emptyMoviesList>
     <div class="discover-movies-hint">
       <mat-icon class="title-icon">find_in_page</mat-icon>
       <p>
@@ -25,5 +25,5 @@
       </p>
       <button (click)="openSidebar()" mat-raised-button>Discover movies</button>
     </div>
-  </ng-container>
+  </ng-template>
 </div>

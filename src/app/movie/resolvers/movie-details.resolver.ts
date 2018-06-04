@@ -5,9 +5,9 @@ import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@a
 import { Observable, ObservableInput } from 'rxjs/Observable';
 import { catchError, tap } from 'rxjs/operators';
 
-import { MovieDetails } from '../interfaces';
-import { MovieDbService } from '../services/movie-db.service';
-import { PatchToolbarAction, toolbarActionTypes } from '../toolbar-content/actions';
+import { MovieDetails } from '../../interfaces';
+import { MovieDbService } from '../../shared/services/movie-db.service';
+import { PatchToolbarAction, toolbarActionTypes } from '../../core/toolbar-content/actions';
 
 @Injectable()
 export class MovieDetailsResolver implements Resolve<MovieDetails> {

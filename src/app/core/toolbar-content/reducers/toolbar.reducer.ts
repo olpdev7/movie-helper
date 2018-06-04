@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux';
 
-import { ToolbarState } from '../../interfaces';
+import { ToolbarState } from '../../../interfaces';
 import { toolbarActionTypes } from '../actions';
 
 export const toolbarInitialState: ToolbarState = {

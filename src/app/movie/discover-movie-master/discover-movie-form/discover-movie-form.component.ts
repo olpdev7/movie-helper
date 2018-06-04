@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { DiscoverParams } from '../../interfaces';
+import { DiscoverParams } from '../../../interfaces';
 
 @Component({
   selector: 'app-discover-movie-form',

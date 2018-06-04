@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { dispatch } from '@angular-redux/store';
 
-import { HideProgressBarAction } from '../actions/app-utils.actions';
-import { appUtilsActionTypes } from '../actions/index';
-import { environment } from '../../environments/environment';
-import { MovieDetails, MovieImages  } from '../interfaces';
-import { MovieDbService } from '../services/movie-db.service';
+import { HideProgressBarAction } from '../../actions/app-utils.actions';
+import { appUtilsActionTypes } from '../../actions/index';
+import { environment } from '../../../environments/environment';
+import { MovieDetails, MovieImages  } from '../../interfaces';
+import { MovieDbService } from '../../shared/services/movie-db.service';
 
 @Component({
   selector: 'app-movie-details',

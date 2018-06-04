@@ -4,14 +4,14 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { catchError, tap } from 'rxjs/operators';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import {
   DiscoverParams,
   DiscoverResult,
   MovieDbConfiguration,
   MovieDetails,
 MovieImages
-} from '../interfaces/index';
+} from '../../interfaces/index';
 
 @Injectable()
 export class MovieDbService {

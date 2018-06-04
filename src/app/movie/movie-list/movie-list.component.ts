@@ -3,15 +3,15 @@ import { PageEvent } from '@angular/material';
 import { dispatch } from '@angular-redux/store';
 import { Router } from '@angular/router';
 
-import { appUtilsActionTypes } from '../actions/index';
+import { appUtilsActionTypes } from '../../actions/index';
 import {
   DiscoverParams,
   DiscoverResult,
   MatPaginatorOptions,
   Movie,
-} from '../interfaces';
-import { CloseSidebarAction, OpenSidebarAction, sidebarActionTypes } from '../sidenav-content/actions';
-import { MovieDbService } from '../services/movie-db.service';
+} from '../../interfaces';
+import { CloseSidebarAction, OpenSidebarAction, sidebarActionTypes } from '../../core/sidenav-content/actions';
+import { MovieDbService } from '../../shared/services/movie-db.service';
 
 @Component({
   selector: 'app-movie-list',

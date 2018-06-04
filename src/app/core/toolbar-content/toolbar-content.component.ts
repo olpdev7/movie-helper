@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { dispatch, select } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 
-import { ToolbarState } from '../interfaces';
+import { ToolbarState } from '../../interfaces';
 import { sidebarActionTypes, ToggleSidebarAction } from '../sidenav-content/actions';
 
 @Component({

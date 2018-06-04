@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { dispatch } from '@angular-redux/store';
 
-import { ToolbarState } from '../interfaces';
-import { SetToolbarAction, toolbarActionTypes } from '../toolbar-content/actions';
+import { ToolbarState } from '../../interfaces';
+import { SetToolbarAction, toolbarActionTypes } from '../../core/toolbar-content/actions';
 
 @Injectable()
 export class ToolbarPreloaderGuard implements CanActivate {

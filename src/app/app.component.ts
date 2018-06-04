@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { dispatch, select } from '@angular-redux/store';
 import { Observable } from 'rxjs/Observable';
 
-import { CloseSidebarAction, sidebarActionTypes } from './sidenav-content/actions/sidebar.actions';
+import { CloseSidebarAction, sidebarActionTypes } from './core/sidenav-content/actions/sidebar.actions';
 
 @Component({
   selector: 'app-root',

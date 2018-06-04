@@ -1,11 +1,12 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { MaterialHubModule } from '../material-hub/material-hub.module';
+import { throwIfAlreadyLoaded } from './module-import.guard';
 import { MovieModule } from '../movie/movie.module';
 import { MovieDetailsResolver } from '../movie/resolvers/movie-details.resolver';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
@@ -44,4 +45,8 @@ import { ToolbarContentComponent } from './toolbar-content/toolbar-content.compo
     ToolbarPreloaderGuard,
   ],
 })
-export class CoreModule { }
+export class CoreModule {
+  constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
+    throwIfAlreadyLoaded(parentModule, 'CoreModule');
+  }
+}

@@ -1,4 +1,4 @@
-<div class="form-container" [formGroup]="discoverForm">
+<form class="form-container" [formGroup]="discoverForm" (ngSubmit)="onSubmit()">
   <!--<mat-form-field>-->
     <!--<input [(ngModel)]="discoverParams.with_genres" matInput type="text" placeholder="genres">-->
   <!--</mat-form-field>-->
@@ -6,4 +6,4 @@
     <input formControlName="primary_release_year" matInput type="text" placeholder="release year">
   </mat-form-field>
 
-</div>
+</form>

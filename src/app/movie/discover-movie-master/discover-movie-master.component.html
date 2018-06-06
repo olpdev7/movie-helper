@@ -1,4 +1,4 @@
-<app-discover-movie-form [(discoverParams)]="discoverParams"></app-discover-movie-form>
+<app-discover-movie-form [(discoverParams)]="discoverParams" (submitForm)="onSubmitForm()"></app-discover-movie-form>
 
 <button (click)="resetForm()" mat-raised-button>Reset</button>
 <button [disabled]="!formValid" (click)="discoverMovies()" mat-raised-button>Discover</button>

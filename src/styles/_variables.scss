@@ -26,6 +26,11 @@ $app-mat-color-background: #eee;
 $app-mat-color-background2: #fff;
 $app-mat-color-text: #000;
 $app-mat-color-text2: #AAAA9E;
+$app-mat-color-text3: #fff;
+
+/*
+size variables
+*/
 
 $toolbar-height: 64px;
 $toolbar-height2: 56px;
@@ -37,6 +42,10 @@ $sidebar-width: 400px;
 $nav-icon-size: 20pt;
 
 
+/*
+Breakpoints
+*/
+
 $screen-xs: 480px;
 $screen-sm: 576px;
 $screen-md: 768px;
@@ -45,11 +54,3 @@ $screen-xlg: 1200px;
 
 $material-breakpoint-xsmall: 599px;
 
-
-@mixin set-toolbar-value-to-property($property) {
-  #{$property}: $toolbar-height;
-
-  @media (max-width: $material-breakpoint-xsmall) {
-    #{$property}: $toolbar-height2;
-  }
-}

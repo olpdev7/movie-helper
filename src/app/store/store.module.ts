@@ -10,7 +10,6 @@ import { rootInitialState, rootReducer } from './root-reducer.reducer';
 
 @NgModule({
   imports: [
-    CommonModule,
     NgReduxModule
   ],
   declarations: []

@@ -1,0 +1,9 @@
+@import 'variables';
+
+@mixin set-toolbar-value-to-property($property) {
+  #{$property}: $toolbar-height;
+
+  @media (max-width: $material-breakpoint-xsmall) {
+    #{$property}: $toolbar-height2;
+  }
+}

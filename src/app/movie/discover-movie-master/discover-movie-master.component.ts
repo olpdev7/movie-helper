@@ -43,4 +43,8 @@ export class DiscoverMovieMasterComponent {
     return this.discoverForm.discoverForm.valid;
   }
 
+  onSubmitForm(): void {
+    this.discoverMovies();
+  }
+
 }

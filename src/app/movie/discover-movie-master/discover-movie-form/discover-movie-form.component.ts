@@ -11,6 +11,7 @@ import { DiscoverParams } from '../../../interfaces';
 export class DiscoverMovieFormComponent implements OnInit {
   @Input() discoverParams: DiscoverParams = {};
   @Output() discoverParamsChange: EventEmitter<DiscoverParams> = new EventEmitter();
+  @Output() submitForm: EventEmitter<void> = new EventEmitter();
 
   discoverForm: FormGroup;
 
@@ -27,6 +28,12 @@ export class DiscoverMovieFormComponent implements OnInit {
     this.discoverForm.valueChanges.subscribe((changes: DiscoverParams) => {
       this.discoverParamsChange.emit(changes);
     });
+  }
+
+  onSubmit(): void {
+    if (this.discoverForm.valid) {
+      this.submitForm.emit();
+    }
   }
 
 }

@@ -28,7 +28,7 @@ const modules = [
 ];
 
 @NgModule({
-  imports: modules,
+  // imports: modules,
   exports: modules
 })
 export class MaterialHubModule { }

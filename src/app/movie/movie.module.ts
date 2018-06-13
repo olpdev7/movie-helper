@@ -9,6 +9,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MaterialHubModule } from '../material-hub/material-hub.module';
 import { MoviePreviewComponent } from './movie-list/movie-preview/movie-preview.component';
+import { MovieRoutingModule } from './movie-routing.module';
 
 @NgModule({
   exports: [
@@ -29,6 +30,7 @@ import { MoviePreviewComponent } from './movie-list/movie-preview/movie-preview.
     CommonModule,
     FormsModule,
     MaterialHubModule,
+    MovieRoutingModule,
     ReactiveFormsModule,
     TruncateModule,
   ]

@@ -1,11 +1,12 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsResolver } from './resolvers/movie-details.resolver';
 import { ToolbarPreloaderGuard } from '../shared/guards/toolbar-preloader.guard';
 
-export const movieRoutes: Routes = [
+const routes: Routes = [
   {
     path: 'list',
     component: MovieListComponent,
@@ -29,3 +30,11 @@ export const movieRoutes: Routes = [
     }
   }
 ];
+
+
+@NgModule({
+  exports: [RouterModule],
+  imports: [RouterModule.forChild(routes)]
+})
+export class MovieRoutingModule {}
+

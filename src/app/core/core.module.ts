@@ -8,10 +8,8 @@ import { RouterModule } from '@angular/router';
 import { MaterialHubModule } from '../material-hub/material-hub.module';
 import { throwIfAlreadyLoaded } from './module-import.guard';
 import { MovieModule } from '../movie/movie.module';
-import { MovieDetailsResolver } from '../movie/resolvers/movie-details.resolver';
 import { SidenavContentComponent } from './sidenav-content/sidenav-content.component';
 import { ToolbarPreloaderGuard } from '../shared/guards/toolbar-preloader.guard';
-import { MovieDbService } from '../shared/services/movie-db.service';
 import { StoreModule } from '../store/store.module';
 import { ToolbarContentComponent } from './toolbar-content/toolbar-content.component';
 
@@ -40,8 +38,6 @@ import { ToolbarContentComponent } from './toolbar-content/toolbar-content.compo
     StoreModule,
   ],
   providers: [
-    MovieDetailsResolver,
-    MovieDbService,
     ToolbarPreloaderGuard,
   ],
 })

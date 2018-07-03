@@ -8,16 +8,14 @@ import { DiscoverMovieFormComponent } from './discover-movie-master/discover-mov
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MaterialHubModule } from '../material-hub/material-hub.module';
+import { MovieDbService } from '../shared/services/movie-db.service';
+import { MovieDetailsResolver } from './resolvers/movie-details.resolver';
 import { MoviePreviewComponent } from './movie-list/movie-preview/movie-preview.component';
 import { MovieRoutingModule } from './movie-routing.module';
 
 @NgModule({
   exports: [
     DiscoverMovieMasterComponent,
-    MovieListComponent,
-    MovieDetailsComponent,
-    DiscoverMovieFormComponent,
-    MoviePreviewComponent,
   ],
   declarations: [
     DiscoverMovieMasterComponent,
@@ -33,6 +31,10 @@ import { MovieRoutingModule } from './movie-routing.module';
     MovieRoutingModule,
     ReactiveFormsModule,
     TruncateModule,
+  ],
+  providers: [
+    MovieDetailsResolver,
+    MovieDbService,
   ]
 })
 export class MovieModule { }

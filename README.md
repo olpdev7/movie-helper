@@ -1,3 +1,6 @@
+# NOTE:
+Things like update dependencies or unsubscribe process for observables will be added later. I am going to make new small app with code examples, I don't know, something like Reddit web client.
+
 # MovieHelper
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
